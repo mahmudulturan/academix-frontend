@@ -7,14 +7,14 @@ const DashboardLayout: FC<{ children: ReactNode }> = ({ children }) => {
     const [isSidebarExpanded, setIsSidebarExpanded] = useState(true);
 
     return (
-        <div className='h-screen flex bg-gray-50'>
+        <div className='h-screen flex bg-background'>
             <DashboardSidebar isSidebarExpanded={isSidebarExpanded} />
             <div className='flex flex-col flex-1 overflow-hidden'>
                 <DashboardHeader
                     isSidebarExpanded={isSidebarExpanded}
                     setIsSidebarExpanded={setIsSidebarExpanded}
                 />
-                <main className='flex-1 overflow-auto bg-white ml-1'>
+                <main className='flex-1 overflow-auto ml-1'>
                     <div className='p-6 '>
                         {children}
                     </div>
