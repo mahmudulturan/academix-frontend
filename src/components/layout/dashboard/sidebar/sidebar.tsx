@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import NavLink from '@/components/common/navlink';
 import { Button } from '@/components/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import UserMenu from './user-menu';
 
 interface NavItemProps {
     route: typeof dashboardRoutes[0];
@@ -114,27 +114,8 @@ const DashboardSidebar: FC = () => {
             </div>
 
             {/* profile button */}
-            <div className='border-t h-16 flex items-center justify-center'>
-                <Button
-                    variant={"ghost"}
-                    className='flex items-center gap-3 h-12'>
-                    <Avatar>
-                        <AvatarImage src="https://github.com/shadcn.png" />
-                        <AvatarFallback>CN</AvatarFallback>
-                    </Avatar>
-                    <span className='flex-1 min-w-0 flex flex-col items-start'>
-                        <span className='text-sm font-medium text-gray-900 truncate'>
-                            Harriette Spoonlicker
-                        </span>
-                        <span className='text-xs text-gray-500 truncate w-32'>
-                            hspoonlicker@outlook.com
-                        </span>
-                    </span>
-                    <Icon
-                        icon={ArrowRight01Icon}
-                        className='text-gray-400'
-                    />
-                </Button>
+            <div className='border-t h-16 flex items-center justify-center px-3'>
+                <UserMenu />
             </div>
         </div>
     );
