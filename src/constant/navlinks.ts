@@ -12,7 +12,16 @@ import {
   ChartColumnIcon,
   CreditCardIcon,
   Settings01Icon,
-  DocumentValidationIcon
+  DocumentValidationIcon,
+  ViewIcon,
+  PlusSignIcon,
+  TaskDone01Icon,
+  Edit02Icon,
+  FileViewIcon,
+  MoneyBag01Icon,
+  MoneyReceive01Icon,
+  UserAccountIcon,
+  ShieldKeyIcon
 } from '@hugeicons/core-free-icons';;
 
 export const dashboardRoutes = [
@@ -34,10 +43,12 @@ export const dashboardRoutes = [
       {
         name: "View Students",
         path: "/dashboard/student/view",
+        icon: ViewIcon,
       },
       {
         name: "Add New Student",
         path: "/dashboard/student/create",
+        icon: PlusSignIcon,
       }
     ]
   },
@@ -49,10 +60,12 @@ export const dashboardRoutes = [
       {
         name: "View Teachers",
         path: "/dashboard/teacher/view",
+        icon: ViewIcon,
       },
       {
         name: "Add New Teacher",
         path: "/dashboard/teacher/create",
+        icon: PlusSignIcon,
       }
     ]
   },
@@ -74,10 +87,12 @@ export const dashboardRoutes = [
       {
         name: "View Attendances",
         path: "/dashboard/attendance/view",
+        icon: ViewIcon,
       },
       {
         name: "Take Attendance",
         path: "/dashboard/attendance/take",
+        icon: TaskDone01Icon,
       }
     ]
   },
@@ -89,10 +104,12 @@ export const dashboardRoutes = [
       {
         name: "View Routines",
         path: "/dashboard/routine/view",
+        icon: ViewIcon,
       },
       {
         name: "Create Routine",
         path: "/dashboard/routine/create",
+        icon: Edit02Icon,
       }
     ]
   },
@@ -109,10 +126,12 @@ export const dashboardRoutes = [
       {
         name: "View Exams",
         path: "/dashboard/exam/view",
+        icon: ViewIcon,
       },
       {
         name: "Create Exam",
         path: "/dashboard/exam/create",
+        icon: PlusSignIcon,
       }
     ]
   },
@@ -124,10 +143,12 @@ export const dashboardRoutes = [
       {
         name: "View Results",
         path: "/dashboard/result/view",
+        icon: FileViewIcon,
       },
       {
         name: "Create Result",
         path: "/dashboard/result/create",
+        icon: Edit02Icon,
       }
     ]
   },
@@ -144,14 +165,17 @@ export const dashboardRoutes = [
       {
         name: "View Accounts",
         path: "/dashboard/accounts/view",
+        icon: ViewIcon,
       },
       {
         name: "Payments",
         path: "/dashboard/accounts/payment/view",
+        icon: MoneyBag01Icon,
       },
       {
         name: "Payouts",
         path: "/dashboard/accounts/payout/view",
+        icon: MoneyReceive01Icon,
       }
     ]
   },
@@ -163,10 +187,12 @@ export const dashboardRoutes = [
       {
         name: "Account",
         path: "/dashboard/account/view",
+        icon: UserAccountIcon,
       },
       {
         name: "RBAC",
         path: "/dashboard/rbac/view",
+        icon: ShieldKeyIcon,
       }
     ]
   }

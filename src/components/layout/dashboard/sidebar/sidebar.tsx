@@ -7,6 +7,7 @@ import NavLink from '@/components/common/navlink';
 import { Button } from '@/components/ui/button';
 import UserMenu from './user-menu';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 interface NavItemProps {
     route: typeof dashboardRoutes[0];
@@ -21,74 +22,125 @@ const NavItem: FC<NavItemProps> = ({ route, isExpanded, onToggle, isSidebarExpan
 
     return (
         <div className='overflow-x-hidden'>
-            {
-                hasSubmenu ?
-                    (<>
+            {hasSubmenu ? (
+                <>
+                    {!isSidebarExpanded ? (
+                        <TooltipProvider>
+                            <Tooltip>
+                                <TooltipTrigger asChild>
+                                    <Button
+                                        className='w-full justify-center px-2'
+                                        variant={"outline"}
+                                        onClick={onToggle}>
+                                        <Icon icon={route.icon} />
+                                    </Button>
+                                </TooltipTrigger>
+                                <TooltipContent side="right">
+                                    <p>{route.name}</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+                    ) : (
                         <Button
-                            className={`w-full text-start ${!isSidebarExpanded ? 'justify-center px-2' : ''}`}
+                            className='w-full text-start'
                             variant={"outline"}
                             onClick={onToggle}>
+                            <Icon icon={route.icon} />
+                            <span className='flex-1'>{route.name}</span>
                             <Icon
-                                icon={route.icon}
+                                icon={ArrowRight01Icon}
+                                altIcon={ArrowDown01Icon}
+                                showAlt={isExpanded}
+                                className='text-gray-400'
                             />
-                            {isSidebarExpanded && (
-                                <>
-                                    <span className='flex-1'>{route.name}</span>
-                                    <Icon
-                                        icon={ArrowRight01Icon}
-                                        altIcon={ArrowDown01Icon}
-                                        showAlt={isExpanded}
-                                        className='text-gray-400'
-                                    />
-                                </>
-                            )}
                         </Button>
+                    )}
 
-                        <AnimatePresence>
-                            {hasSubmenu && isExpanded && isSidebarExpanded && route.children && (
-                                <motion.div
-                                    initial={{ opacity: 0, height: 0 }}
-                                    animate={{ opacity: 1, height: 'auto' }}
-                                    exit={{ opacity: 0, height: 0 }}
-                                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                                    className='border-l-2 pl-4 ml-4 mt-1 mb-2 space-y-1 overflow-hidden'
-                                >
-                                    {route.children.map((child, index) => (
-                                        <motion.div
-                                            key={index}
-                                            initial={{ opacity: 0, x: -10 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            exit={{ opacity: 0, x: -10 }}
-                                            transition={{ duration: 0.2, delay: index * 0.05 }}
-                                        >
+                    <AnimatePresence>
+                        {hasSubmenu && isExpanded && route.children && (
+                            <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                                className={`mt-1 space-y-1 overflow-hidden ${
+                                    isSidebarExpanded ? 'border-l-2 pl-4 ml-4' : 'ml-0'
+                                }`}
+                            >
+                                {route.children.map((child, index) => (
+                                    <motion.div
+                                        key={index}
+                                        initial={{ opacity: 0, x: -10 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: -10 }}
+                                        transition={{ duration: 0.2, delay: index * 0.05 }}
+                                    >
+                                        {!isSidebarExpanded && child.icon ? (
+                                            <TooltipProvider>
+                                                <Tooltip>
+                                                    <TooltipTrigger asChild>
+                                                        <NavLink
+                                                            href={child.path}
+                                                            active='default'
+                                                            other='outline'
+                                                            className='justify-center px-2'
+                                                        >
+                                                            <Icon icon={child.icon} />
+                                                        </NavLink>
+                                                    </TooltipTrigger>
+                                                    <TooltipContent side="right">
+                                                        <p>{child.name}</p>
+                                                    </TooltipContent>
+                                                </Tooltip>
+                                            </TooltipProvider>
+                                        ) : (
                                             <NavLink
                                                 href={child.path}
                                                 active='default'
                                                 other='outline'
-                                                className='mt-1'
+                                                className='mt-1 text-start'
                                             >
-                                                {child.name}
+                                                {child.icon && <Icon icon={child.icon} />}
+                                                {isSidebarExpanded && <span className='flex-1'>{child.name}</span>}
                                             </NavLink>
-                                        </motion.div>
-                                    ))}
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-                    </>
-                    )
-                    :
+                                        )}
+                                    </motion.div>
+                                ))}
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </>
+            ) : (
+                !isSidebarExpanded ? (
+                    <TooltipProvider>
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                <NavLink
+                                    href={route.path}
+                                    active='default'
+                                    other='outline'
+                                    className='text-start justify-center px-2'
+                                >
+                                    <Icon icon={route.icon} />
+                                </NavLink>
+                            </TooltipTrigger>
+                            <TooltipContent side="right">
+                                <p>{route.name}</p>
+                            </TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
+                ) : (
                     <NavLink
                         href={route.path}
                         active='default'
                         other='outline'
-                        className={`text-start ${!isSidebarExpanded ? 'justify-center px-2' : ''}`}
+                        className='text-start'
                     >
-                        <Icon
-                            icon={route.icon}
-                        />
-                        {isSidebarExpanded && <span className='flex-1'>{route.name}</span>}
+                        <Icon icon={route.icon} />
+                        <span className='flex-1'>{route.name}</span>
                     </NavLink>
-            }
+                )
+            )}
         </div>
     );
 };
@@ -101,8 +153,6 @@ const DashboardSidebar: FC<DashboardSidebarProps> = ({ isSidebarExpanded }) => {
     const [expandedItems, setExpandedItems] = useState<{ [key: string]: boolean }>({
         'Dashboard': true
     });
-
-
 
     const toggleExpanded = (routeName: string) => {
         setExpandedItems(prev => ({
