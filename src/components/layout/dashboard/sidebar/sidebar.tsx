@@ -1,13 +1,14 @@
 "use client";
 import Icon from '@/components/common/icon';
 import { dashboardRoutes } from '@/constant/navlinks';
-import { ArrowRight01Icon, ArrowDown01Icon } from '@hugeicons/core-free-icons';
+import { ArrowRight01Icon, ArrowDown01Icon, MoreVerticalIcon } from '@hugeicons/core-free-icons';
 import { FC, useState } from 'react';
 import NavLink from '@/components/common/navlink';
 import { Button } from '@/components/ui/button';
 import UserMenu from './user-menu';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Separator } from '@/components/ui/separator';
 
 interface NavItemProps {
     route: typeof dashboardRoutes[0];
@@ -21,7 +22,7 @@ const NavItem: FC<NavItemProps> = ({ route, isExpanded, onToggle, isSidebarExpan
     const hasSubmenu = route.children && route.children.length > 0;
 
     return (
-        <div className='overflow-x-hidden'>
+        <div className=''>
             {hasSubmenu ? (
                 <>
                     {!isSidebarExpanded ? (
@@ -29,20 +30,33 @@ const NavItem: FC<NavItemProps> = ({ route, isExpanded, onToggle, isSidebarExpan
                             <Tooltip>
                                 <TooltipTrigger asChild>
                                     <Button
-                                        className='w-full justify-center px-2'
+                                        className='w-full justify-center px-2 relative'
                                         variant={"outline"}
                                         onClick={onToggle}>
                                         <Icon icon={route.icon} />
+                                        <div className='absolute z-10 bottom-0 right-1/2 translate-y-1/2 translate-x-1/2 size-4 bg-primary rounded-full flex items-center justify-center'>
+                                            <Icon
+                                                icon={ArrowRight01Icon}
+                                                altIcon={ArrowDown01Icon}
+                                                showAlt={isExpanded}
+                                                size={8}
+                                                strokeWidth={2.5}
+                                                className='text-muted'
+                                            />
+                                        </div>
                                     </Button>
                                 </TooltipTrigger>
                                 <TooltipContent side="right">
-                                    <p>{route.name}</p>
+                                    <div className='flex flex-col gap-1'>
+                                        <p className='font-medium'>{route.name}</p>
+                                        <p className='text-xs text-muted'>{route.children?.length} items • Click to expand</p>
+                                    </div>
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
                     ) : (
                         <Button
-                            className='w-full text-start'
+                            className='w-full text-start justify-start'
                             variant={"outline"}
                             onClick={onToggle}>
                             <Icon icon={route.icon} />
@@ -63,9 +77,8 @@ const NavItem: FC<NavItemProps> = ({ route, isExpanded, onToggle, isSidebarExpan
                                 animate={{ opacity: 1, height: 'auto' }}
                                 exit={{ opacity: 0, height: 0 }}
                                 transition={{ duration: 0.3, ease: 'easeInOut' }}
-                                className={`mt-1 space-y-1 overflow-hidden ${
-                                    isSidebarExpanded ? 'border-l-2 pl-4 ml-4' : 'ml-0'
-                                }`}
+                                className={`mt-1 space-y-1 overflow-hidden ${isSidebarExpanded ? 'border-l-2 pl-4 ml-4' : 'ml-0'
+                                    }`}
                             >
                                 {route.children.map((child, index) => (
                                     <motion.div
@@ -106,6 +119,15 @@ const NavItem: FC<NavItemProps> = ({ route, isExpanded, onToggle, isSidebarExpan
                                         )}
                                     </motion.div>
                                 ))}
+                                <motion.div
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.2, delay: 0.3 }}
+                                    className='mt-2'
+                                >
+                                    <Separator />
+                                </motion.div>
                             </motion.div>
                         )}
                     </AnimatePresence>
@@ -125,7 +147,10 @@ const NavItem: FC<NavItemProps> = ({ route, isExpanded, onToggle, isSidebarExpan
                                 </NavLink>
                             </TooltipTrigger>
                             <TooltipContent side="right">
-                                <p>{route.name}</p>
+                                <div className='flex flex-col gap-1'>
+                                    <p className='font-medium'>{route.name}</p>
+                                    <p className='text-xs text-muted'>Direct link</p>
+                                </div>
                             </TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
@@ -163,10 +188,10 @@ const DashboardSidebar: FC<DashboardSidebarProps> = ({ isSidebarExpanded }) => {
 
     return (
         <motion.div
-            className='bg-background border-r h-full flex flex-col'
+            className='bg-background border-r h-full flex flex-col overflow-x-hidden'
             initial={false}
             animate={{
-                width: isSidebarExpanded ? 256 : 64
+                width: isSidebarExpanded ? 256 : 80
             }}
             transition={{
                 duration: 0.3,
@@ -195,7 +220,7 @@ const DashboardSidebar: FC<DashboardSidebarProps> = ({ isSidebarExpanded }) => {
 
             {/* navlinks */}
             <div className={`flex-1 py-4 ${isSidebarExpanded ? 'px-3' : 'px-2'}`}>
-                <nav className='space-y-2 h-[calc(100vh-181px)] overflow-y-auto'>
+                <nav className={`${isSidebarExpanded ? 'space-y-2' : 'space-y-3'} h-[calc(100vh-181px)] overflow-y-auto`}>
                     {dashboardRoutes.map((route, index) => (
                         <NavItem
                             key={index}
