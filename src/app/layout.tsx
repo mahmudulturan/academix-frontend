@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -17,11 +18,8 @@ export const metadata: Metadata = {
   description: "Acdemix - School Management App. A premium school management app for schools.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+
+const MainLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <html lang="en">
       <body
@@ -31,4 +29,6 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
+};
+
+export default MainLayout;
