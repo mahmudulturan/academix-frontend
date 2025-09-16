@@ -27,6 +27,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useTheme } from '@/providers/theme-provider';
 import { cn } from '@/lib/utils';
+import { useStore } from '@/store';
 
 interface UserMenuProps {
     isSidebarExpanded: boolean;
@@ -34,6 +35,7 @@ interface UserMenuProps {
 
 const UserMenu: FC<UserMenuProps> = ({ isSidebarExpanded }) => {
     const { theme, handleThemeChange } = useTheme();
+    const user = useStore(state => state.auth.user);
 
     return (
         <DropdownMenu>
@@ -43,8 +45,8 @@ const UserMenu: FC<UserMenuProps> = ({ isSidebarExpanded }) => {
                     className={`flex items-center h-12 w-full ${isSidebarExpanded ? 'gap-3 justify-start' : 'justify-center px-2'}`}
                 >
                     <Avatar className={isSidebarExpanded ? '' : 'w-8 h-8'}>
-                        <AvatarImage src="https://github.com/shadcn.png" />
-                        <AvatarFallback>CN</AvatarFallback>
+                        <AvatarImage src={user?.profileImage || "https://github.com/shadcn.png"} />
+                        <AvatarFallback>{user?.name.en}</AvatarFallback>
                     </Avatar>
                     <AnimatePresence>
                         {isSidebarExpanded && (
@@ -57,10 +59,10 @@ const UserMenu: FC<UserMenuProps> = ({ isSidebarExpanded }) => {
                                     transition={{ duration: 0.2, delay: 0.1 }}
                                 >
                                     <span className="text-sm font-medium text-gray-900 truncate">
-                                        shadcn
+                                        {user?.name.en}
                                     </span>
                                     <span className="text-xs text-gray-500 truncate w-32">
-                                        contact@shadcn.com
+                                        {user?.email}
                                     </span>
                                 </motion.span>
                                 <motion.div
@@ -82,8 +84,8 @@ const UserMenu: FC<UserMenuProps> = ({ isSidebarExpanded }) => {
             <DropdownMenuContent className="w-56" side="top" align="center">
                 <DropdownMenuLabel asChild>
                     <div>
-                        <h6>Mahmudul Turan</h6>
-                        <p style={{ fontSize: '12px', fontWeight: 400 }}>mahmudulhasanturan@gmail.com</p>
+                        <h6>{user?.name.en}</h6>
+                        <p style={{ fontSize: '12px', fontWeight: 400 }}>{user?.email}</p>
                     </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
