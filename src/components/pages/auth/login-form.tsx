@@ -3,7 +3,6 @@
 import { FC, useState } from 'react';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { z } from "zod"
 import { Eye, EyeOff } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -16,29 +15,27 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-
-const loginSchema = z.object({
-    email: z.string().email({
-        message: "Please enter a valid email address.",
-    }),
-    password: z.string().min(6, {
-        message: "Password must be at least 6 characters.",
-    }),
-})
+import { Checkbox } from "@/components/ui/checkbox"
+import { useLoginUserMutation } from '@/tanstack/mutation/auth.mutation';
+import { loginSchema } from '@/validation/auth.validation';
+import { ILoginPayload } from '@/types/auth.type';
 
 const LoginForm: FC = () => {
     const [showPassword, setShowPassword] = useState(false)
 
-    const form = useForm<z.infer<typeof loginSchema>>({
+    const form = useForm<ILoginPayload>({
         resolver: zodResolver(loginSchema),
         defaultValues: {
             email: "",
             password: "",
+            rememberMe: false,
         },
     })
 
-    const handleLogin = (values: z.infer<typeof loginSchema>) => {
-        console.log(values)
+    const { mutate: loginUser, isPending: isLoggingIn } = useLoginUserMutation();
+
+    const handleLogin = (values: ILoginPayload) => {
+        loginUser(values);
     }
 
     const togglePasswordVisibility = () => {
@@ -100,7 +97,27 @@ const LoginForm: FC = () => {
                         )}
                     />
 
-                    <Button type="submit" className="w-full">
+                    <FormField
+                        control={form.control}
+                        name="rememberMe"
+                        render={({ field }) => (
+                            <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                                <FormControl>
+                                    <Checkbox
+                                        checked={field.value}
+                                        onCheckedChange={field.onChange}
+                                    />
+                                </FormControl>
+                                <div className="space-y-1 leading-none">
+                                    <FormLabel>
+                                        Remember me
+                                    </FormLabel>
+                                </div>
+                            </FormItem>
+                        )}
+                    />
+
+                    <Button loading={isLoggingIn} type="submit" className="w-full">
                         Sign in
                     </Button>
                 </form>
