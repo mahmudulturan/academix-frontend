@@ -1,9 +1,10 @@
 "use client"
 
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
+import { Eye, EyeOff } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -17,7 +18,7 @@ import {
 import { Input } from "@/components/ui/input"
 
 const loginSchema = z.object({
-    email: z.email({
+    email: z.string().email({
         message: "Please enter a valid email address.",
     }),
     password: z.string().min(6, {
@@ -26,6 +27,8 @@ const loginSchema = z.object({
 })
 
 const LoginForm: FC = () => {
+    const [showPassword, setShowPassword] = useState(false)
+
     const form = useForm<z.infer<typeof loginSchema>>({
         resolver: zodResolver(loginSchema),
         defaultValues: {
@@ -36,6 +39,10 @@ const LoginForm: FC = () => {
 
     const handleLogin = (values: z.infer<typeof loginSchema>) => {
         console.log(values)
+    }
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword)
     }
 
     return (
@@ -66,13 +73,28 @@ const LoginForm: FC = () => {
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>Password</FormLabel>
-                                <FormControl>
-                                    <Input
-                                        type="password"
-                                        placeholder="Enter your password"
-                                        {...field}
-                                    />
-                                </FormControl>
+                                <div className="relative">
+                                    <FormControl className='relative'>
+                                        <Input
+                                            type={showPassword ? "text" : "password"}
+                                            placeholder="Enter your password"
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                    <Button
+                                        type="button"
+                                        variant={"ghost"}
+                                        size={"icon"}
+                                        className="absolute inset-y-0 right-0 hover:bg-transparent"
+                                        onClick={togglePasswordVisibility}
+                                    >
+                                        {showPassword ? (
+                                            <EyeOff className="h-4 w-4 text-gray-400" />
+                                        ) : (
+                                            <Eye className="h-4 w-4 text-gray-400" />
+                                        )}
+                                    </Button>
+                                </div>
                                 <FormMessage />
                             </FormItem>
                         )}
