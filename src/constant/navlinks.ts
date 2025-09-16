@@ -27,7 +27,7 @@ export const dashboardRoutes = [
     icon: UserMultipleIcon
   },
   {
-    name: "Students",
+    name: "Student",
     path: "/dashboard/student",
     icon: StudentIcon,
     children: [
@@ -42,7 +42,7 @@ export const dashboardRoutes = [
     ]
   },
   {
-    name: "Teachers",
+    name: "Teacher",
     path: "/dashboard/teacher",
     icon: MentorIcon,
     children: [
@@ -67,7 +67,7 @@ export const dashboardRoutes = [
     icon: BookOpen01Icon
   },
   {
-    name: "Attendances",
+    name: "Attendance",
     path: "/dashboard/attendance",
     icon: CheckListIcon,
     children: [
@@ -82,7 +82,7 @@ export const dashboardRoutes = [
     ]
   },
   {
-    name: "Routines",
+    name: "Routine",
     path: "/dashboard/routine",
     icon: Calendar01Icon,
     children: [
@@ -102,7 +102,7 @@ export const dashboardRoutes = [
     icon: Notification01Icon
   },
   {
-    name: "Exams",
+    name: "Exam",
     path: "/dashboard/exam",
     icon: Mortarboard02Icon,
     children: [
@@ -117,7 +117,7 @@ export const dashboardRoutes = [
     ]
   },
   {
-    name: "Results",
+    name: "Result",
     path: "/dashboard/result",
     icon: ChartColumnIcon,
     children: [

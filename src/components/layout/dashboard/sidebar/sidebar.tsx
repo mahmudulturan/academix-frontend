@@ -3,11 +3,10 @@ import Icon from '@/components/common/icon';
 import { dashboardRoutes } from '@/constant/navlinks';
 import { ArrowRight01Icon, ArrowDown01Icon } from '@hugeicons/core-free-icons';
 import { FC, useState } from 'react';
-import { cn } from '@/lib/utils';
-import Link from 'next/link';
 import NavLink from '@/components/common/navlink';
 import { Button } from '@/components/ui/button';
 import UserMenu from './user-menu';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface NavItemProps {
     route: typeof dashboardRoutes[0];
@@ -40,21 +39,36 @@ const NavItem: FC<NavItemProps> = ({ route, isExpanded, onToggle }) => {
                             />
                         </Button>
 
-                        {hasSubmenu && isExpanded && route.children && (
-                            <div className='border-l-2 pl-4 ml-4 mt-1 mb-2 space-y-1'>
-                                {route.children.map((child, index) => (
-                                    <NavLink
-                                        key={index}
-                                        href={child.path}
-                                        active='default'
-                                        other='outline'
-                                        className='mt-1'
-                                    >
-                                        {child.name}
-                                    </NavLink>
-                                ))}
-                            </div>
-                        )}
+                        <AnimatePresence>
+                            {hasSubmenu && isExpanded && route.children && (
+                                <motion.div
+                                    initial={{ opacity: 0, height: 0 }}
+                                    animate={{ opacity: 1, height: 'auto' }}
+                                    exit={{ opacity: 0, height: 0 }}
+                                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                                    className='border-l-2 pl-4 ml-4 mt-1 mb-2 space-y-1 overflow-hidden'
+                                >
+                                    {route.children.map((child, index) => (
+                                        <motion.div
+                                            key={index}
+                                            initial={{ opacity: 0, x: -10 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            exit={{ opacity: 0, x: -10 }}
+                                            transition={{ duration: 0.2, delay: index * 0.05 }}
+                                        >
+                                            <NavLink
+                                                href={child.path}
+                                                active='default'
+                                                other='outline'
+                                                className='mt-1'
+                                            >
+                                                {child.name}
+                                            </NavLink>
+                                        </motion.div>
+                                    ))}
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </>
                     )
                     :
