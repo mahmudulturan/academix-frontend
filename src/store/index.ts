@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import authSlice from './slices/authSlice'
+import authSlice from './slices/auth.slice'
 
 export interface RootState {
     auth: ReturnType<typeof authSlice>;

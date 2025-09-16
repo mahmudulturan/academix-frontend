@@ -1,5 +1,5 @@
 import Icon from '@/components/common/icon';
-import { dashboardRoutes } from '@/constant/navlinks';
+import { dashboardRoutes } from '@/constant/navlinks.constant';
 import { ArrowRight01Icon, ArrowDown01Icon } from '@hugeicons/core-free-icons';
 import { FC } from 'react';
 import NavLink from '@/components/common/navlink';

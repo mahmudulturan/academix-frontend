@@ -1,5 +1,5 @@
 "use client";
-import { dashboardRoutes } from '@/constant/navlinks';
+import { dashboardRoutes } from '@/constant/navlinks.constant';
 import { FC, useState } from 'react';
 import UserMenu from './user-menu';
 import { motion, AnimatePresence } from 'framer-motion';
