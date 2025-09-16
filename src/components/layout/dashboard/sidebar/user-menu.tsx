@@ -7,6 +7,7 @@ import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
+    DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
@@ -14,20 +15,26 @@ import {
     ArrowRight01Icon,
     Settings01Icon,
     HelpCircleIcon,
-    Search01Icon,
     LogoutSquare02Icon,
     UserIcon,
-    CreditCardIcon,
-    Notification01Icon
+    Notification01Icon,
+    LaptopIcon,
+    Sun01Icon,
+    Moon02Icon
 } from '@hugeicons/core-free-icons';
 import { FC } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { useTheme } from '@/providers/theme-provider';
+import { cn } from '@/lib/utils';
 
 interface UserMenuProps {
     isSidebarExpanded: boolean;
 }
 
 const UserMenu: FC<UserMenuProps> = ({ isSidebarExpanded }) => {
+    const { theme, handleThemeChange } = useTheme();
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -72,14 +79,17 @@ const UserMenu: FC<UserMenuProps> = ({ isSidebarExpanded }) => {
                     </AnimatePresence>
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56" side="right" align="end">
+            <DropdownMenuContent className="w-56" side="top" align="center">
+                <DropdownMenuLabel asChild>
+                    <div>
+                        <h6>Mahmudul Turan</h6>
+                        <p style={{ fontSize: '12px', fontWeight: 400 }}>mahmudulhasanturan@gmail.com</p>
+                    </div>
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
                 <DropdownMenuItem>
                     <Icon icon={UserIcon} className="mr-2" />
                     <span>Account</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                    <Icon icon={CreditCardIcon} className="mr-2" />
-                    <span>Billing</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                     <Icon icon={Notification01Icon} className="mr-2" />
@@ -94,10 +104,55 @@ const UserMenu: FC<UserMenuProps> = ({ isSidebarExpanded }) => {
                     <Icon icon={HelpCircleIcon} className="mr-2" />
                     <span>Get Help</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
-                    <Icon icon={Search01Icon} className="mr-2" />
-                    <span>Search</span>
-                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuLabel asChild>
+                    <div className='flex items-center justify-between'>
+                        <span className='text-sm font-medium'>Theme</span>
+                        <div className='flex items-center w-fit rounded-full border bg-background p-0.5'>
+                            <TooltipProvider>
+                                <Tooltip>
+                                    <TooltipTrigger asChild>
+                                        <span onClick={() => handleThemeChange('system')}
+                                            className={cn('cursor-pointer flex justify-center items-center size-6 rounded-full', theme === 'system' && 'bg-accent')}>
+                                            <Icon size={16} icon={LaptopIcon} />
+                                        </span>
+                                    </TooltipTrigger>
+                                    <TooltipContent>
+                                        <p>System</p>
+                                    </TooltipContent>
+                                </Tooltip>
+                            </TooltipProvider>
+                            <TooltipProvider>
+                                <Tooltip>
+                                    <TooltipTrigger asChild>
+                                        <span
+                                            onClick={() => handleThemeChange('light')}
+                                            className={cn('cursor-pointer flex justify-center items-center size-6 rounded-full', theme === 'light' && 'bg-accent')}>
+                                            <Icon size={16} icon={Sun01Icon} />
+                                        </span>
+                                    </TooltipTrigger>
+                                    <TooltipContent>
+                                        <p>Light</p>
+                                    </TooltipContent>
+                                </Tooltip>
+                            </TooltipProvider>
+                            <TooltipProvider>
+                                <Tooltip>
+                                    <TooltipTrigger asChild>
+                                        <span
+                                            onClick={() => handleThemeChange('dark')}
+                                            className={cn('cursor-pointer flex justify-center items-center size-6 rounded-full', theme === 'dark' && 'bg-accent')}>
+                                            <Icon size={16} icon={Moon02Icon} />
+                                        </span>
+                                    </TooltipTrigger>
+                                    <TooltipContent>
+                                        <p>Dark</p>
+                                    </TooltipContent>
+                                </Tooltip>
+                            </TooltipProvider>
+                        </div>
+                    </div>
+                </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
                     <Icon icon={LogoutSquare02Icon} className="mr-2" />
