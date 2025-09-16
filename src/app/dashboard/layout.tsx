@@ -4,17 +4,17 @@ import { FC, ReactNode } from 'react';
 
 const DashboardLayout: FC<{ children: ReactNode }> = ({ children }) => {
     return (
-        <>
-            <header>
+        <div className='h-screen flex bg-gray-50'>
+            <DashboardSidebar />
+            <div className='flex flex-col flex-1 overflow-hidden'>
                 <DashboardHeader />
-            </header>
-            <aside>
-                <DashboardSidebar />
-            </aside>
-            <main>
-                {children}
-            </main>
-        </>
+                <main className='flex-1 overflow-auto bg-white ml-1'>
+                    <div className='p-6 '>
+                        {children}
+                    </div>
+                </main>
+            </div>
+        </div>
     );
 };
 

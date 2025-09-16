@@ -165,7 +165,7 @@ export const dashboardRoutes = [
         path: "/dashboard/account/view",
       },
       {
-        name: "View RBAC",
+        name: "RBAC",
         path: "/dashboard/rbac/view",
       }
     ]
