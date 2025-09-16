@@ -32,7 +32,7 @@ export const dashboardRoutes = [
   },
   {
     name: "Users",
-    path: "/dashboard/user/view",
+    path: "/dashboard/user",
     icon: UserMultipleIcon
   },
   {
@@ -42,7 +42,7 @@ export const dashboardRoutes = [
     children: [
       {
         name: "View Students",
-        path: "/dashboard/student/view",
+        path: "/dashboard/student",
         icon: ViewIcon,
       },
       {
@@ -59,7 +59,7 @@ export const dashboardRoutes = [
     children: [
       {
         name: "View Teachers",
-        path: "/dashboard/teacher/view",
+        path: "/dashboard/teacher",
         icon: ViewIcon,
       },
       {
@@ -71,12 +71,12 @@ export const dashboardRoutes = [
   },
   {
     name: "Classes",
-    path: "/dashboard/class/view",
+    path: "/dashboard/class",
     icon: MeetingRoomIcon
   },
   {
     name: "Subjects",
-    path: "/dashboard/subject/view",
+    path: "/dashboard/subject",
     icon: BookOpen01Icon
   },
   {
@@ -86,7 +86,7 @@ export const dashboardRoutes = [
     children: [
       {
         name: "View Attendances",
-        path: "/dashboard/attendance/view",
+        path: "/dashboard/attendance",
         icon: ViewIcon,
       },
       {
@@ -103,7 +103,7 @@ export const dashboardRoutes = [
     children: [
       {
         name: "View Routines",
-        path: "/dashboard/routine/view",
+        path: "/dashboard/routine",
         icon: ViewIcon,
       },
       {
@@ -115,7 +115,7 @@ export const dashboardRoutes = [
   },
   {
     name: "Notices",
-    path: "/dashboard/notices/view",
+    path: "/dashboard/notices",
     icon: Notification01Icon
   },
   {
@@ -125,7 +125,7 @@ export const dashboardRoutes = [
     children: [
       {
         name: "View Exams",
-        path: "/dashboard/exam/view",
+        path: "/dashboard/exam",
         icon: ViewIcon,
       },
       {
@@ -142,7 +142,7 @@ export const dashboardRoutes = [
     children: [
       {
         name: "View Results",
-        path: "/dashboard/result/view",
+        path: "/dashboard/result",
         icon: FileViewIcon,
       },
       {
@@ -154,7 +154,7 @@ export const dashboardRoutes = [
   },
   {
     name: "Documents",
-    path: "/dashboard/document/view",
+    path: "/dashboard/document",
     icon: DocumentValidationIcon
   },
   {
@@ -164,17 +164,17 @@ export const dashboardRoutes = [
     children: [
       {
         name: "View Accounts",
-        path: "/dashboard/accounts/view",
+        path: "/dashboard/accounts",
         icon: ViewIcon,
       },
       {
         name: "Payments",
-        path: "/dashboard/accounts/payment/view",
+        path: "/dashboard/accounts/payment",
         icon: MoneyBag01Icon,
       },
       {
         name: "Payouts",
-        path: "/dashboard/accounts/payout/view",
+        path: "/dashboard/accounts/payout",
         icon: MoneyReceive01Icon,
       }
     ]
@@ -186,12 +186,12 @@ export const dashboardRoutes = [
     children: [
       {
         name: "Account",
-        path: "/dashboard/account/view",
+        path: "/dashboard/account",
         icon: UserAccountIcon,
       },
       {
         name: "RBAC",
-        path: "/dashboard/rbac/view",
+        path: "/dashboard/rbac",
         icon: ShieldKeyIcon,
       }
     ]
