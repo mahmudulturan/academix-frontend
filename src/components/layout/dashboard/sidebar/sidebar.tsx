@@ -13,34 +13,39 @@ interface NavItemProps {
     isActive?: boolean;
     isExpanded?: boolean;
     onToggle?: () => void;
+    isSidebarExpanded: boolean;
 }
 
-const NavItem: FC<NavItemProps> = ({ route, isExpanded, onToggle }) => {
+const NavItem: FC<NavItemProps> = ({ route, isExpanded, onToggle, isSidebarExpanded }) => {
     const hasSubmenu = route.children && route.children.length > 0;
 
     return (
-        <div>
+        <div className='overflow-x-hidden'>
             {
                 hasSubmenu ?
                     (<>
                         <Button
-                            className='w-full text-start'
+                            className={`w-full text-start ${!isSidebarExpanded ? 'justify-center px-2' : ''}`}
                             variant={"outline"}
                             onClick={onToggle}>
                             <Icon
                                 icon={route.icon}
                             />
-                            <span className='flex-1'>{route.name}</span>
-                            <Icon
-                                icon={ArrowRight01Icon}
-                                altIcon={ArrowDown01Icon}
-                                showAlt={isExpanded}
-                                className='text-gray-400'
-                            />
+                            {isSidebarExpanded && (
+                                <>
+                                    <span className='flex-1'>{route.name}</span>
+                                    <Icon
+                                        icon={ArrowRight01Icon}
+                                        altIcon={ArrowDown01Icon}
+                                        showAlt={isExpanded}
+                                        className='text-gray-400'
+                                    />
+                                </>
+                            )}
                         </Button>
 
                         <AnimatePresence>
-                            {hasSubmenu && isExpanded && route.children && (
+                            {hasSubmenu && isExpanded && isSidebarExpanded && route.children && (
                                 <motion.div
                                     initial={{ opacity: 0, height: 0 }}
                                     animate={{ opacity: 1, height: 'auto' }}
@@ -76,20 +81,23 @@ const NavItem: FC<NavItemProps> = ({ route, isExpanded, onToggle }) => {
                         href={route.path}
                         active='default'
                         other='outline'
-                        className='text-start'
+                        className={`text-start ${!isSidebarExpanded ? 'justify-center px-2' : ''}`}
                     >
                         <Icon
                             icon={route.icon}
                         />
-                        <span className='flex-1'>{route.name}</span>
-
+                        {isSidebarExpanded && <span className='flex-1'>{route.name}</span>}
                     </NavLink>
             }
         </div>
     );
 };
 
-const DashboardSidebar: FC = () => {
+interface DashboardSidebarProps {
+    isSidebarExpanded: boolean;
+}
+
+const DashboardSidebar: FC<DashboardSidebarProps> = ({ isSidebarExpanded }) => {
     const [expandedItems, setExpandedItems] = useState<{ [key: string]: boolean }>({
         'Dashboard': true
     });
@@ -104,17 +112,39 @@ const DashboardSidebar: FC = () => {
     };
 
     return (
-        <div className='w-64 bg-background border-r h-full flex flex-col'>
+        <motion.div
+            className='bg-background border-r h-full flex flex-col'
+            initial={false}
+            animate={{
+                width: isSidebarExpanded ? 256 : 64
+            }}
+            transition={{
+                duration: 0.3,
+                ease: 'easeInOut'
+            }}
+        >
             {/* logo */}
-            <div className='flex items-center gap-2 px-6 py-4 max-h-16 border-b'>
+            <div className={`flex items-center gap-2 py-4 max-h-16 border-b ${isSidebarExpanded ? 'px-6' : 'px-4 justify-center'}`}>
                 <div className='w-8 h-8 bg-gray-900 rounded-full flex items-center justify-center'>
                     <span className='text-white text-sm font-semibold'>A</span>
                 </div>
-                <span className='font-semibold text-gray-900'>Academix</span>
+                <AnimatePresence>
+                    {isSidebarExpanded && (
+                        <motion.span
+                            className='font-semibold text-gray-900'
+                            initial={{ opacity: 0, width: 0 }}
+                            animate={{ opacity: 1, width: 'auto' }}
+                            exit={{ opacity: 0, width: 0 }}
+                            transition={{ duration: 0.2, delay: 0.1 }}
+                        >
+                            Academix
+                        </motion.span>
+                    )}
+                </AnimatePresence>
             </div>
 
             {/* navlinks */}
-            <div className='flex-1 py-4 px-3'>
+            <div className={`flex-1 py-4 ${isSidebarExpanded ? 'px-3' : 'px-2'}`}>
                 <nav className='space-y-2 h-[calc(100vh-181px)] overflow-y-auto'>
                     {dashboardRoutes.map((route, index) => (
                         <NavItem
@@ -122,16 +152,17 @@ const DashboardSidebar: FC = () => {
                             route={route}
                             isExpanded={expandedItems[route.name]}
                             onToggle={() => toggleExpanded(route.name)}
+                            isSidebarExpanded={isSidebarExpanded}
                         />
                     ))}
                 </nav>
             </div>
 
             {/* profile button */}
-            <div className='border-t h-16 flex items-center justify-center px-3'>
-                <UserMenu />
+            <div className={`border-t h-16 flex items-center justify-center ${isSidebarExpanded ? 'px-3' : 'px-2'}`}>
+                <UserMenu isSidebarExpanded={isSidebarExpanded} />
             </div>
-        </div>
+        </motion.div>
     );
 };
 

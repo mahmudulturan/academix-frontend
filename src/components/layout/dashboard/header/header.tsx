@@ -40,7 +40,7 @@ const DashboardHeader: FC<DashboardHeaderProps> = ({ isSidebarExpanded, setIsSid
     const toggleSidebar = () => setIsSidebarExpanded(!isSidebarExpanded);
 
     return (
-        <div className='flex items-center justify-between px-6 py-4 border-b max-h-16'>
+        <div className='flex items-center justify-between p-4 border-b max-h-16'>
             <div className='flex items-center gap-2'>
                 <div className='flex items-center gap-0.5'>
                     <Button

@@ -1,13 +1,19 @@
+"use client";
 import DashboardHeader from '@/components/layout/dashboard/header/header';
 import DashboardSidebar from '@/components/layout/dashboard/sidebar/sidebar';
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, useState } from 'react';
 
 const DashboardLayout: FC<{ children: ReactNode }> = ({ children }) => {
+    const [isSidebarExpanded, setIsSidebarExpanded] = useState(true);
+
     return (
         <div className='h-screen flex bg-gray-50'>
-            <DashboardSidebar />
+            <DashboardSidebar isSidebarExpanded={isSidebarExpanded} />
             <div className='flex flex-col flex-1 overflow-hidden'>
-                <DashboardHeader />
+                <DashboardHeader
+                    isSidebarExpanded={isSidebarExpanded}
+                    setIsSidebarExpanded={setIsSidebarExpanded}
+                />
                 <main className='flex-1 overflow-auto bg-white ml-1'>
                     <div className='p-6 '>
                         {children}
