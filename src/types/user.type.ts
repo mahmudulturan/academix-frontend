@@ -6,13 +6,13 @@ export interface IName {
 }
 
 export interface IUser {
-    id: any;
+    id: string;
     name: IName;
     email: string;
     phone: string;
     username: string;
     profileImage?: string;
-    roles: any[];
+    roles: string[];
     status: typeof USER_STATUS[keyof typeof USER_STATUS];
     isEmailVerified: boolean;
     isDeleted: boolean;

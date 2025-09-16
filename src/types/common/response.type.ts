@@ -27,3 +27,13 @@ export interface IResponseWithPaginationData<T> {
         result: T;
     };
 }
+
+
+export interface IErrorResponse {
+    response: {
+        success: false;
+        status: number;
+        message: string;
+        data?: Record<string, string>;
+    }
+}
