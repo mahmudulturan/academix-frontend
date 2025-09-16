@@ -16,7 +16,7 @@ const DashboardHeader: FC<DashboardHeaderProps> = ({ isSidebarExpanded, setIsSid
     const pathname = usePathname();
 
     const generateBreadcrumbs = () => {
-        const paths = pathname.split('/').filter(path => path).slice(pathname.split('/').length - 3, pathname.split('/').length);
+        const paths = pathname.split('/').filter(path => path);
         return paths.map((path, index) => {
             const href = `/${paths.slice(0, index + 1).join('/')}`;
             const label = path.charAt(0).toUpperCase() + path.slice(1);
