@@ -5,6 +5,7 @@ import "./globals.css";
 import ThemeProvider from '@/providers/theme-provider';
 import TanstackProvider from '@/providers/tanstack-provider';
 import { Toaster } from 'sonner';
+import AuthProvider from '@/providers/auth-provider';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,9 +30,11 @@ const MainLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <TanstackProvider>
-          <ThemeProvider>
-            {children}
-          </ThemeProvider>
+          <AuthProvider>
+            <ThemeProvider>
+              {children}
+            </ThemeProvider>
+          </AuthProvider>
         </TanstackProvider>
         <Toaster />
       </body>

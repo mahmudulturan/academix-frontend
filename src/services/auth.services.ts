@@ -5,10 +5,17 @@ import { IResponseWithData } from "@/types/common/response.type"
 import { IUser } from "@/types/user.type"
 
 const loginUser = async (data: ILoginPayload): Promise<IResponseWithData<IUser>> => {
-    const response = await axiosInstance.post(`${authRoutes.loginRoute}?rememberMe=${(data).rememberMe}`, data)
+    const response = await axiosInstance.post(`${authRoutes.login}?rememberMe=${(data).rememberMe}`, data)
     return response.data
 }
 
+const getCurrentUser = async (): Promise<IResponseWithData<IUser>> => {
+    const response = await axiosInstance.get(`${authRoutes.getCurrentUser}`)
+    return response.data
+}
+
+
 export const authServices = {
-    loginUser
+    loginUser,
+    getCurrentUser
 }
