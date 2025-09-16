@@ -10,28 +10,21 @@ import {
   Notification01Icon,
   Mortarboard02Icon,
   ChartColumnIcon,
-  Folder01Icon,
   CreditCardIcon,
-  UserIcon,
-  SecurityIcon
+  Settings01Icon,
+  DocumentValidationIcon
 } from '@hugeicons/core-free-icons';;
 
-export const routes = [
+export const dashboardRoutes = [
   {
     name: "Dashboard",
-    path: "/dashboard/home",
+    path: "/dashboard",
     icon: Home01Icon,
   },
   {
     name: "Users",
-    path: "/dashboard/user",
-    icon: UserMultipleIcon,
-    children: [
-      {
-        name: "View Users",
-        path: "/dashboard/user/view",
-      }
-    ]
+    path: "/dashboard/user/view",
+    icon: UserMultipleIcon
   },
   {
     name: "Students",
@@ -41,10 +34,6 @@ export const routes = [
       {
         name: "View Students",
         path: "/dashboard/student/view",
-      },
-      {
-        name: "Student Detail",
-        path: "/dashboard/student/detail/[studentID]",
       },
       {
         name: "Add New Student",
@@ -62,10 +51,6 @@ export const routes = [
         path: "/dashboard/teacher/view",
       },
       {
-        name: "Teacher Details",
-        path: "/dashboard/teacher/detail/[teacherId]",
-      },
-      {
         name: "Add New Teacher",
         path: "/dashboard/teacher/create",
       }
@@ -73,29 +58,13 @@ export const routes = [
   },
   {
     name: "Classes",
-    path: "/dashboard/class",
-    icon: MeetingRoomIcon,
-    children: [
-      {
-        name: "View Classes",
-        path: "/dashboard/class/view",
-      },
-      {
-        name: "Class Details",
-        path: "/dashboard/class/detail/[classId]",
-      }
-    ]
+    path: "/dashboard/class/view",
+    icon: MeetingRoomIcon
   },
   {
     name: "Subjects",
-    path: "/dashboard/subject",
-    icon: BookOpen01Icon,
-    children: [
-      {
-        name: "View Subjects",
-        path: "/dashboard/subject/view",
-      }
-    ]
+    path: "/dashboard/subject/view",
+    icon: BookOpen01Icon
   },
   {
     name: "Attendances",
@@ -107,8 +76,8 @@ export const routes = [
         path: "/dashboard/attendance/view",
       },
       {
-        name: "Attendance Details",
-        path: "/dashboard/attendance/detail/[classId]",
+        name: "Take Attendance",
+        path: "/dashboard/attendance/take",
       }
     ]
   },
@@ -122,10 +91,6 @@ export const routes = [
         path: "/dashboard/routine/view",
       },
       {
-        name: "Routine Details",
-        path: "/dashboard/routine/detail/[classId]",
-      },
-      {
         name: "Create Routine",
         path: "/dashboard/routine/create",
       }
@@ -133,14 +98,8 @@ export const routes = [
   },
   {
     name: "Notices",
-    path: "/dashboard/notices",
-    icon: Notification01Icon,
-    children: [
-      {
-        name: "View Notices",
-        path: "/dashboard/notices/view",
-      }
-    ]
+    path: "/dashboard/notices/view",
+    icon: Notification01Icon
   },
   {
     name: "Exams",
@@ -150,10 +109,6 @@ export const routes = [
       {
         name: "View Exams",
         path: "/dashboard/exam/view",
-      },
-      {
-        name: "Exam Details",
-        path: "/dashboard/exam/detail/[examId]",
       },
       {
         name: "Create Exam",
@@ -171,10 +126,6 @@ export const routes = [
         path: "/dashboard/result/view",
       },
       {
-        name: "Result Details",
-        path: "/dashboard/result/detail/[resultId]",
-      },
-      {
         name: "Create Result",
         path: "/dashboard/result/create",
       }
@@ -182,18 +133,8 @@ export const routes = [
   },
   {
     name: "Documents",
-    path: "/dashboard/document",
-    icon: Folder01Icon,
-    children: [
-      {
-        name: "View Documents",
-        path: "/dashboard/document/view",
-      },
-      {
-        name: "Document Details",
-        path: "/dashboard/document/detail/[documentId]",
-      }
-    ]
+    path: "/dashboard/document/view",
+    icon: DocumentValidationIcon
   },
   {
     name: "Accounts",
@@ -215,21 +156,14 @@ export const routes = [
     ]
   },
   {
-    name: "Account",
+    name: "Settings",
     path: "/dashboard/account",
-    icon: UserIcon,
+    icon: Settings01Icon,
     children: [
       {
-        name: "View Account",
+        name: "Account",
         path: "/dashboard/account/view",
-      }
-    ]
-  },
-  {
-    name: "RBAC",
-    path: "/dashboard/rbac",
-    icon: SecurityIcon,
-    children: [
+      },
       {
         name: "View RBAC",
         path: "/dashboard/rbac/view",
