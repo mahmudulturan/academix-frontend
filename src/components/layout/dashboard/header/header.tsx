@@ -33,7 +33,7 @@ const DashboardHeader: FC<DashboardHeaderProps> = ({ isSidebarExpanded, setIsSid
             let label = path?.charAt(0)?.toUpperCase() + path?.slice(1);
             try {
                 if (!isLast) {
-                    label = navigationT(path as any) || label;
+                    label = navigationT(path as string) || label;
                 }
             } catch {
                 // Fallback to capitalized path if translation not found
