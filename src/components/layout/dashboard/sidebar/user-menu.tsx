@@ -29,6 +29,7 @@ import { cn } from '@/lib/utils';
 import { useStore } from '@/store';
 import { useTranslations } from 'next-intl';
 import LocaleSwitcher from '@/components/common/locale-switcher';
+import { getLocalizedName, useCurrentLocale } from '@/lib/i18n-utils';
 
 interface UserMenuProps {
     isSidebarExpanded: boolean;
@@ -38,7 +39,8 @@ const UserMenu: FC<UserMenuProps> = ({ isSidebarExpanded }) => {
     const { theme, handleThemeChange } = useTheme();
     const user = useStore(state => state.auth.user);
     const t = useTranslations('common');
-
+    const locale = useCurrentLocale();
+    console.log(locale);
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -61,7 +63,7 @@ const UserMenu: FC<UserMenuProps> = ({ isSidebarExpanded }) => {
                                     transition={{ duration: 0.2, delay: 0.1 }}
                                 >
                                     <span className="text-sm font-medium text-gray-900 truncate">
-                                        {user?.name.en}
+                                        {user?.name && getLocalizedName(user?.name, locale)}
                                     </span>
                                     <span className="text-xs text-gray-500 truncate w-32">
                                         {user?.email}
@@ -86,7 +88,7 @@ const UserMenu: FC<UserMenuProps> = ({ isSidebarExpanded }) => {
             <DropdownMenuContent className="w-56" side="top" align="center">
                 <DropdownMenuLabel asChild>
                     <div>
-                        <h6>{user?.name.en}</h6>
+                        <h6>{user?.name && getLocalizedName(user?.name, locale)}</h6>
                         <p style={{ fontSize: '12px', fontWeight: 400 }}>{user?.email}</p>
                     </div>
                 </DropdownMenuLabel>
