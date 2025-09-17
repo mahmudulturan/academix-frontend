@@ -1,5 +1,5 @@
 import Icon from '@/components/common/icon';
-import { dashboardRoutes } from '@/constant/navlinks.constant';
+import { type NavRoute } from '@/constant/navlinks.constant';
 import { ArrowRight01Icon, ArrowDown01Icon } from '@hugeicons/core-free-icons';
 import { FC } from 'react';
 import NavLink from '@/components/common/navlink';
@@ -7,9 +7,10 @@ import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Separator } from '@/components/ui/separator';
+import { useNavigationTranslations } from '@/lib/i18n-utils';
 
 interface NavItemProps {
-    route: typeof dashboardRoutes[0];
+    route: NavRoute;
     isActive?: boolean;
     isExpanded?: boolean;
     onToggle?: () => void;
@@ -19,6 +20,7 @@ interface NavItemProps {
 const NavItem: FC<NavItemProps> = ({ route, isExpanded, onToggle, isSidebarExpanded }) => {
     const hasSubmenu = route.children && route.children.length > 0;
 
+    const t = useNavigationTranslations();
     return (
         <div className=''>
             {hasSubmenu ? (
@@ -46,7 +48,7 @@ const NavItem: FC<NavItemProps> = ({ route, isExpanded, onToggle, isSidebarExpan
                                 </TooltipTrigger>
                                 <TooltipContent side="right">
                                     <div className='flex flex-col gap-1'>
-                                        <p className='font-medium'>{route.name}</p>
+                                        <p className='font-medium'>{t(route.nameKey)}</p>
                                         <p className='text-xs text-muted'>{route.children?.length} items • Click to expand</p>
                                     </div>
                                 </TooltipContent>
@@ -58,7 +60,7 @@ const NavItem: FC<NavItemProps> = ({ route, isExpanded, onToggle, isSidebarExpan
                             variant={"outline"}
                             onClick={onToggle}>
                             <Icon icon={route.icon} />
-                            <span className='flex-1'>{route.name}</span>
+                            <span className='flex-1'>{t(route.nameKey)}</span>
                             <Icon
                                 icon={ArrowRight01Icon}
                                 altIcon={ArrowDown01Icon}
@@ -100,7 +102,7 @@ const NavItem: FC<NavItemProps> = ({ route, isExpanded, onToggle, isSidebarExpan
                                                         </NavLink>
                                                     </TooltipTrigger>
                                                     <TooltipContent side="right">
-                                                        <p>{child.name}</p>
+                                                        <p>{t(child.nameKey)}</p>
                                                     </TooltipContent>
                                                 </Tooltip>
                                             </TooltipProvider>
@@ -112,7 +114,7 @@ const NavItem: FC<NavItemProps> = ({ route, isExpanded, onToggle, isSidebarExpan
                                                 className='mt-1 text-start'
                                             >
                                                 {child.icon && <Icon icon={child.icon} />}
-                                                {isSidebarExpanded && <span className='flex-1'>{child.name}</span>}
+                                                {isSidebarExpanded && <span className='flex-1'>{t(child.nameKey)}</span>}
                                             </NavLink>
                                         )}
                                     </motion.div>
@@ -146,7 +148,7 @@ const NavItem: FC<NavItemProps> = ({ route, isExpanded, onToggle, isSidebarExpan
                             </TooltipTrigger>
                             <TooltipContent side="right">
                                 <div className='flex flex-col gap-1'>
-                                    <p className='font-medium'>{route.name}</p>
+                                    <p className='font-medium'>{t(route.nameKey)}</p>
                                     <p className='text-xs text-muted'>Direct link</p>
                                 </div>
                             </TooltipContent>
@@ -160,7 +162,7 @@ const NavItem: FC<NavItemProps> = ({ route, isExpanded, onToggle, isSidebarExpan
                         className='text-start'
                     >
                         <Icon icon={route.icon} />
-                        <span className='flex-1'>{route.name}</span>
+                        <span className='flex-1'>{t(route.nameKey)}</span>
                     </NavLink>
                 )
             )}

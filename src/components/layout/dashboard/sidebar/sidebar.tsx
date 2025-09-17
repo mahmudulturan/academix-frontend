@@ -1,9 +1,9 @@
 "use client";
-import { dashboardRoutes } from '@/constant/navlinks.constant';
 import { FC, useState } from 'react';
 import UserMenu from './user-menu';
 import { motion, AnimatePresence } from 'framer-motion';
 import NavItem from './nav-item';
+import { getDashboardRoutes } from '@/constant/navlinks.constant';
 interface DashboardSidebarProps {
     isSidebarExpanded: boolean;
 }
@@ -12,6 +12,8 @@ const DashboardSidebar: FC<DashboardSidebarProps> = ({ isSidebarExpanded }) => {
     const [expandedItems, setExpandedItems] = useState<{ [key: string]: boolean }>({
         'Dashboard': true
     });
+
+    const dashboardRoutes = getDashboardRoutes();
 
     const toggleExpanded = (routeName: string) => {
         setExpandedItems(prev => ({
@@ -59,8 +61,8 @@ const DashboardSidebar: FC<DashboardSidebarProps> = ({ isSidebarExpanded }) => {
                         <NavItem
                             key={index}
                             route={route}
-                            isExpanded={expandedItems[route.name]}
-                            onToggle={() => toggleExpanded(route.name)}
+                            isExpanded={expandedItems[route.nameKey]}
+                            onToggle={() => toggleExpanded(route.nameKey)}
                             isSidebarExpanded={isSidebarExpanded}
                         />
                     ))}

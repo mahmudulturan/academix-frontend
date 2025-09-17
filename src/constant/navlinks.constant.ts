@@ -22,175 +22,183 @@ import {
   MoneyReceive01Icon,
   UserAccountIcon,
   ShieldKeyIcon
-} from '@hugeicons/core-free-icons';;
+} from '@hugeicons/core-free-icons';
+import { IconSvgElement } from '@hugeicons/react';
 
-export const dashboardRoutes = [
+export interface NavRoute {
+  nameKey: string;
+  path: string;
+  icon: IconSvgElement;
+  children?: NavRoute[];
+}
+
+export const getDashboardRoutes = (): NavRoute[] => [
   {
-    name: "Dashboard",
+    nameKey: "dashboard",
     path: "/dashboard",
     icon: Home01Icon,
   },
   {
-    name: "Users",
+    nameKey: "users",
     path: "/dashboard/user",
     icon: UserMultipleIcon
   },
   {
-    name: "Student",
+    nameKey: "student",
     path: "/dashboard/student",
     icon: StudentIcon,
     children: [
       {
-        name: "View Students",
+        nameKey: "viewStudents",
         path: "/dashboard/student",
         icon: ViewIcon,
       },
       {
-        name: "Add New Student",
+        nameKey: "addNewStudent",
         path: "/dashboard/student/create",
         icon: PlusSignIcon,
       }
     ]
   },
   {
-    name: "Teacher",
+    nameKey: "teacher",
     path: "/dashboard/teacher",
     icon: MentorIcon,
     children: [
       {
-        name: "View Teachers",
+        nameKey: "viewTeachers",
         path: "/dashboard/teacher",
         icon: ViewIcon,
       },
       {
-        name: "Add New Teacher",
+        nameKey: "addNewTeacher",
         path: "/dashboard/teacher/create",
         icon: PlusSignIcon,
       }
     ]
   },
   {
-    name: "Classes",
+    nameKey: "classes",
     path: "/dashboard/class",
     icon: MeetingRoomIcon
   },
   {
-    name: "Subjects",
+    nameKey: "subjects",
     path: "/dashboard/subject",
     icon: BookOpen01Icon
   },
   {
-    name: "Attendance",
+    nameKey: "attendance",
     path: "/dashboard/attendance",
     icon: CheckListIcon,
     children: [
       {
-        name: "View Attendances",
+        nameKey: "viewAttendances",
         path: "/dashboard/attendance",
         icon: ViewIcon,
       },
       {
-        name: "Take Attendance",
+        nameKey: "takeAttendance",
         path: "/dashboard/attendance/take",
         icon: TaskDone01Icon,
       }
     ]
   },
   {
-    name: "Routine",
+    nameKey: "routine",
     path: "/dashboard/routine",
     icon: Calendar01Icon,
     children: [
       {
-        name: "View Routines",
+        nameKey: "viewRoutines",
         path: "/dashboard/routine",
         icon: ViewIcon,
       },
       {
-        name: "Create Routine",
+        nameKey: "createRoutine",
         path: "/dashboard/routine/create",
         icon: Edit02Icon,
       }
     ]
   },
   {
-    name: "Notices",
+    nameKey: "notices",
     path: "/dashboard/notices",
     icon: Notification01Icon
   },
   {
-    name: "Exam",
+    nameKey: "exam",
     path: "/dashboard/exam",
     icon: Mortarboard02Icon,
     children: [
       {
-        name: "View Exams",
+        nameKey: "viewExams",
         path: "/dashboard/exam",
         icon: ViewIcon,
       },
       {
-        name: "Create Exam",
+        nameKey: "createExam",
         path: "/dashboard/exam/create",
         icon: PlusSignIcon,
       }
     ]
   },
   {
-    name: "Result",
+    nameKey: "result",
     path: "/dashboard/result",
     icon: ChartColumnIcon,
     children: [
       {
-        name: "View Results",
+        nameKey: "viewResults",
         path: "/dashboard/result",
         icon: FileViewIcon,
       },
       {
-        name: "Create Result",
+        nameKey: "createResult",
         path: "/dashboard/result/create",
         icon: Edit02Icon,
       }
     ]
   },
   {
-    name: "Documents",
+    nameKey: "documents",
     path: "/dashboard/document",
     icon: DocumentValidationIcon
   },
   {
-    name: "Accounts",
+    nameKey: "accounts",
     path: "/dashboard/accounts",
     icon: CreditCardIcon,
     children: [
       {
-        name: "View Accounts",
+        nameKey: "viewAccounts",
         path: "/dashboard/accounts",
         icon: ViewIcon,
       },
       {
-        name: "Payments",
+        nameKey: "payments",
         path: "/dashboard/accounts/payment",
         icon: MoneyBag01Icon,
       },
       {
-        name: "Payouts",
+        nameKey: "payouts",
         path: "/dashboard/accounts/payout",
         icon: MoneyReceive01Icon,
       }
     ]
   },
   {
-    name: "Settings",
+    nameKey: "settings",
     path: "/dashboard/account",
     icon: Settings01Icon,
     children: [
       {
-        name: "Account",
+        nameKey: "account",
         path: "/dashboard/account",
         icon: UserAccountIcon,
       },
       {
-        name: "RBAC",
+        nameKey: "rbac",
         path: "/dashboard/rbac",
         icon: ShieldKeyIcon,
       }

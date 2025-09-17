@@ -15,7 +15,7 @@ const NavLink = ({ href, children, active, other, className, ...props }: NavLink
     const pathname = usePathname();
     return (
         <Link href={href} {...props}>
-            <Button className={cn("w-full font-semibold capitalize justify-start", className)} variant={pathname === href ? active : other}>
+            <Button className={cn("w-full capitalize justify-start", className)} variant={pathname === href ? active : other}>
                 {children}
             </Button>
         </Link>
