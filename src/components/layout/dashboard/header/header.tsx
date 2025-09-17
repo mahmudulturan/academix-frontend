@@ -5,8 +5,10 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbP
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { PlusSignCircleIcon, SidebarLeft01Icon, SidebarRight01Icon } from '@hugeicons/core-free-icons';
-import { usePathname } from 'next/navigation';
+import { usePathname } from '@/i18n/routing';
 import { FC } from 'react';
+import { useNavigationTranslations, useStudentTranslations } from '@/lib/i18n-utils';
+import { getDashboardRoutes } from '@/constant/navlinks.constant';
 
 interface DashboardHeaderProps {
     isSidebarExpanded: boolean;
@@ -15,19 +17,35 @@ interface DashboardHeaderProps {
 
 const DashboardHeader: FC<DashboardHeaderProps> = ({ isSidebarExpanded, setIsSidebarExpanded }) => {
     const pathname = usePathname();
+    const navigationT = useNavigationTranslations();
+    const studentT = useStudentTranslations();
+
+    const dashboardRoutes = getDashboardRoutes().flatMap(route => route.children || route);
+    const currentRoute = dashboardRoutes.find(route => route.path === pathname);
 
     const generateBreadcrumbs = () => {
         const paths = pathname.split('/').filter(path => path);
         return paths.map((path, index) => {
             const href = `/${paths.slice(0, index + 1).join('/')}`;
-            const label = path.charAt(0).toUpperCase() + path.slice(1);
             const isLast = index === paths.length - 1;
+
+            // Translate known navigation items
+            let label = path?.charAt(0)?.toUpperCase() + path?.slice(1);
+            try {
+                if (!isLast) {
+                    label = navigationT(path as any) || label;
+                }
+            } catch {
+                // Fallback to capitalized path if translation not found
+                label = path?.charAt(0)?.toUpperCase() + path?.slice(1);
+            }
+
 
             return (
                 <BreadcrumbList key={index}>
                     <BreadcrumbItem>
                         {isLast ? (
-                            <BreadcrumbPage className='font-semibold'>{label}</BreadcrumbPage>
+                            <BreadcrumbPage className='font-semibold'>{navigationT(currentRoute?.nameKey || "")}</BreadcrumbPage>
                         ) : (
                             <BreadcrumbLink className='font-semibold' href={href}>{label}</BreadcrumbLink>
                         )}
@@ -74,7 +92,7 @@ const DashboardHeader: FC<DashboardHeaderProps> = ({ isSidebarExpanded, setIsSid
                         icon={PlusSignCircleIcon}
                         size={16}
                     />
-                    <span>Quick Create</span>
+                    <span>{studentT('admission')}</span>
                 </Button>
                 <LocaleSwitcher />
             </div>
