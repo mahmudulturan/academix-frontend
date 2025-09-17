@@ -17,14 +17,17 @@ import {
 import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
 import { useLoginUserMutation } from '@/tanstack/mutation/auth.mutation';
-import { loginSchema } from '@/validation/auth.validation';
+import { createLoginSchema } from '@/validation/auth.validation';
 import { ILoginPayload } from '@/types/auth.type';
+import { useAuthTranslations, useFormTranslations } from '@/lib/i18n-utils';
 
 const LoginForm: FC = () => {
     const [showPassword, setShowPassword] = useState(false)
+    const t = useAuthTranslations();
+    const formT = useFormTranslations();
 
     const form = useForm<ILoginPayload>({
-        resolver: zodResolver(loginSchema),
+        resolver: zodResolver(createLoginSchema(formT)),
         defaultValues: {
             email: "",
             password: "",
@@ -51,11 +54,11 @@ const LoginForm: FC = () => {
                         name="email"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Email address</FormLabel>
+                                <FormLabel>{t('emailAddress')}</FormLabel>
                                 <FormControl>
                                     <Input
                                         type="email"
-                                        placeholder="Enter your email"
+                                        placeholder={t('enterYourEmail')}
                                         {...field}
                                     />
                                 </FormControl>
@@ -69,12 +72,12 @@ const LoginForm: FC = () => {
                         name="password"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Password</FormLabel>
+                                <FormLabel>{t('password')}</FormLabel>
                                 <div className="relative">
                                     <FormControl className='relative'>
                                         <Input
                                             type={showPassword ? "text" : "password"}
-                                            placeholder="Enter your password"
+                                            placeholder={t('enterYourPassword')}
                                             {...field}
                                         />
                                     </FormControl>
@@ -101,7 +104,7 @@ const LoginForm: FC = () => {
                         control={form.control}
                         name="rememberMe"
                         render={({ field }) => (
-                            <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                            <FormItem className="flex flex-row items-center space-x-2 space-y-0">
                                 <FormControl>
                                     <Checkbox
                                         checked={field.value}
@@ -110,7 +113,7 @@ const LoginForm: FC = () => {
                                 </FormControl>
                                 <div className="space-y-1 leading-none">
                                     <FormLabel>
-                                        Remember me
+                                        {t('rememberMe')}
                                     </FormLabel>
                                 </div>
                             </FormItem>
@@ -118,7 +121,7 @@ const LoginForm: FC = () => {
                     />
 
                     <Button loading={isLoggingIn} type="submit" className="w-full">
-                        Sign in
+                        {t('signIn')}
                     </Button>
                 </form>
             </Form>
