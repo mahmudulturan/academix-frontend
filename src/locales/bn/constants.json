@@ -1,0 +1,24 @@
+{
+  "gender": {
+    "male": "পুরুষ",
+    "female": "মহিলা",
+    "other": "অন্যান্য"
+  },
+  "religion": {
+    "islam": "ইসলাম",
+    "hinduism": "হিন্দু ধর্ম",
+    "christianity": "খ্রিস্ট ধর্ম",
+    "buddhism": "বৌদ্ধ ধর্ম",
+    "other": "অন্যান্য"
+  },
+  "bloodGroup": {
+    "aPositive": "এ+",
+    "aNegative": "এ-",
+    "bPositive": "বি+",
+    "bNegative": "বি-",
+    "abPositive": "এবি+",
+    "abNegative": "এবি-",
+    "oPositive": "ও+",
+    "oNegative": "ও-"
+  }
+}

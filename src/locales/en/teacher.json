@@ -1,0 +1,23 @@
+{
+  "title": "Teachers",
+  "addNew": "Add New Teacher",
+  "details": "Teacher Details",
+  "personal": "Personal Information",
+  "professional": "Professional Information",
+  "qualification": "Qualification",
+  "designation": "Designation",
+  "subject": "Subject",
+  "joiningDate": "Joining Date",
+  "assignedClasses": "Assigned Classes",
+  "teacherId": "Teacher ID",
+  "experience": "Experience",
+  "salary": "Salary",
+  "department": "Department",
+  "expertise": "Expertise",
+  "workingHours": "Working Hours",
+  "contactInfo": "Contact Information",
+  "emergencyContact": "Emergency Contact",
+  "bankDetails": "Bank Details",
+  "performance": "Performance",
+  "schedule": "Schedule"
+}

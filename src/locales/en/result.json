@@ -1,0 +1,19 @@
+{
+  "title": "Results",
+  "addNew": "Add New Result",
+  "create": "Create Result",
+  "details": "Result Details",
+  "marks": "Marks",
+  "grade": "Grade",
+  "percentage": "Percentage",
+  "rank": "Rank",
+  "gpa": "GPA",
+  "cgpa": "CGPA",
+  "passStatus": "Pass Status",
+  "remarks": "Remarks",
+  "transcript": "Transcript",
+  "certificate": "Certificate",
+  "report": "Report Card",
+  "publish": "Publish",
+  "unpublish": "Unpublish"
+}

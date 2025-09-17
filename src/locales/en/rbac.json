@@ -1,0 +1,16 @@
+{
+  "title": "Role Based Access Control",
+  "roles": "Roles",
+  "permissions": "Permissions",
+  "users": "Users",
+  "assign": "Assign",
+  "revoke": "Revoke",
+  "admin": "Admin",
+  "principal": "Principal",
+  "teacher": "Teacher",
+  "student": "Student",
+  "parent": "Parent",
+  "staff": "Staff",
+  "accountant": "Accountant",
+  "librarian": "Librarian"
+}

@@ -1,0 +1,15 @@
+{
+  "title": "ডকুমেন্ট",
+  "upload": "ডকুমেন্ট আপলোড করুন",
+  "download": "ডাউনলোড",
+  "type": "ডকুমেন্টের ধরন",
+  "category": "বিভাগ",
+  "size": "আকার",
+  "uploadDate": "আপলোডের তারিখ",
+  "uploadedBy": "আপলোডকারী",
+  "academic": "একাডেমিক",
+  "administrative": "প্রশাসনিক",
+  "legal": "আইনি",
+  "financial": "আর্থিক",
+  "personal": "ব্যক্তিগত"
+}

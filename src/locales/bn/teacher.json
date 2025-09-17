@@ -1,0 +1,23 @@
+{
+  "title": "শিক্ষক",
+  "addNew": "নতুন শিক্ষক যোগ করুন",
+  "details": "শিক্ষকের বিস্তারিত",
+  "personal": "ব্যক্তিগত তথ্য",
+  "professional": "পেশাগত তথ্য",
+  "qualification": "যোগ্যতা",
+  "designation": "পদবী",
+  "subject": "বিষয়",
+  "joiningDate": "যোগদানের তারিখ",
+  "assignedClasses": "বরাদ্দকৃত ক্লাস",
+  "teacherId": "শিক্ষক আইডি",
+  "experience": "অভিজ্ঞতা",
+  "salary": "বেতন",
+  "department": "বিভাগ",
+  "expertise": "দক্ষতা",
+  "workingHours": "কর্মঘন্টা",
+  "contactInfo": "যোগাযোগের তথ্য",
+  "emergencyContact": "জরুরি যোগাযোগ",
+  "bankDetails": "ব্যাংক বিবরণী",
+  "performance": "কর্মক্ষমতা",
+  "schedule": "সময়সূচী"
+}

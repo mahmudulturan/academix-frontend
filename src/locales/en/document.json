@@ -1,0 +1,15 @@
+{
+  "title": "Documents",
+  "upload": "Upload Document",
+  "download": "Download",
+  "type": "Document Type",
+  "category": "Category",
+  "size": "Size",
+  "uploadDate": "Upload Date",
+  "uploadedBy": "Uploaded By",
+  "academic": "Academic",
+  "administrative": "Administrative",
+  "legal": "Legal",
+  "financial": "Financial",
+  "personal": "Personal"
+}

@@ -1,0 +1,15 @@
+{
+  "title": "ক্লাস",
+  "addNew": "নতুন ক্লাস যোগ করুন",
+  "details": "ক্লাসের বিস্তারিত",
+  "className": "ক্লাসের নাম",
+  "classTeacher": "ক্লাস শিক্ষক",
+  "totalStudents": "মোট শিক্ষার্থী",
+  "subjects": "বিষয়সমূহ",
+  "timetable": "সময়সূচী",
+  "capacity": "ধারণক্ষমতা",
+  "room": "রুম",
+  "schedule": "সময়সূচী",
+  "academicYear": "শিক্ষাবর্ষ",
+  "fees": "ফি কাঠামো"
+}

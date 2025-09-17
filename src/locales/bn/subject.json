@@ -1,0 +1,15 @@
+{
+  "title": "বিষয়",
+  "addNew": "নতুন বিষয় যোগ করুন",
+  "details": "বিষয়ের বিস্তারিত",
+  "subjectName": "বিষয়ের নাম",
+  "subjectCode": "বিষয় কোড",
+  "description": "বর্ণনা",
+  "syllabus": "পাঠ্যসূচী",
+  "books": "বই",
+  "teacher": "শিক্ষক",
+  "creditHours": "ক্রেডিট ঘন্টা",
+  "practicalHours": "ব্যবহারিক ঘন্টা",
+  "theoryHours": "তত্ত্বীয় ঘন্টা",
+  "gradeLevel": "গ্রেড স্তর"
+}

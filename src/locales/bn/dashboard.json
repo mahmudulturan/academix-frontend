@@ -1,0 +1,16 @@
+{
+  "welcome": "ড্যাশবোর্ডে স্বাগতম",
+  "overview": "সংক্ষিপ্ত বিবরণ",
+  "statistics": "পরিসংখ্যান",
+  "recentActivities": "সাম্প্রতিক কার্যক্রম",
+  "quickActions": "দ্রুত কার্যক্রম",
+  "totalStudents": "মোট শিক্ষার্থী",
+  "totalTeachers": "মোট শিক্ষক",
+  "totalClasses": "মোট ক্লাস",
+  "activeExams": "চলমান পরীক্ষা",
+  "upcomingExams": "আসন্ন পরীক্ষা",
+  "attendance": "উপস্থিতি",
+  "todaysAttendance": "আজকের উপস্থিতি",
+  "monthlyReport": "মাসিক রিপোর্ট",
+  "announcements": "ঘোষণা"
+}

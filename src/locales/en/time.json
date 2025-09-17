@@ -1,0 +1,18 @@
+{
+  "morning": "Morning",
+  "afternoon": "Afternoon",
+  "evening": "Evening",
+  "night": "Night",
+  "today": "Today",
+  "yesterday": "Yesterday",
+  "tomorrow": "Tomorrow",
+  "thisWeek": "This Week",
+  "lastWeek": "Last Week",
+  "nextWeek": "Next Week",
+  "thisMonth": "This Month",
+  "lastMonth": "Last Month",
+  "nextMonth": "Next Month",
+  "thisYear": "This Year",
+  "lastYear": "Last Year",
+  "nextYear": "Next Year"
+}

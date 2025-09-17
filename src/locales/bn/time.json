@@ -1,0 +1,18 @@
+{
+  "morning": "সকাল",
+  "afternoon": "দুপুর",
+  "evening": "সন্ধ্যা",
+  "night": "রাত",
+  "today": "আজ",
+  "yesterday": "গতকাল",
+  "tomorrow": "আগামীকাল",
+  "thisWeek": "এই সপ্তাহ",
+  "lastWeek": "গত সপ্তাহ",
+  "nextWeek": "পরের সপ্তাহ",
+  "thisMonth": "এই মাস",
+  "lastMonth": "গত মাস",
+  "nextMonth": "পরের মাস",
+  "thisYear": "এই বছর",
+  "lastYear": "গত বছর",
+  "nextYear": "পরের বছর"
+}

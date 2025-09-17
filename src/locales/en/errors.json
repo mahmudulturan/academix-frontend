@@ -1,0 +1,12 @@
+{
+  "somethingWentWrong": "Something went wrong",
+  "tryAgain": "Please try again",
+  "networkError": "Network error occurred",
+  "unauthorizedAccess": "Unauthorized access",
+  "pageNotFound": "Page not found",
+  "serverError": "Server error occurred",
+  "validationError": "Validation error",
+  "permissionDenied": "Permission denied",
+  "sessionExpired": "Session expired",
+  "fileUploadError": "File upload failed"
+}

@@ -22,9 +22,7 @@ type TranslationKey =
   | 'errors'
   | 'success'
   | 'time'
-  | 'gender'
-  | 'religion'
-  | 'bloodGroup';
+  | 'constants';
 
 export const useTypedTranslations = (namespace: TranslationKey) => {
   return useTranslations(namespace);
@@ -50,9 +48,9 @@ export const useFormTranslations = () => useTranslations('forms');
 export const useErrorTranslations = () => useTranslations('errors');
 export const useSuccessTranslations = () => useTranslations('success');
 export const useTimeTranslations = () => useTranslations('time');
-export const useGenderTranslations = () => useTranslations('gender');
-export const useReligionTranslations = () => useTranslations('religion');
-export const useBloodGroupTranslations = () => useTranslations('bloodGroup');
+export const useGenderTranslations = () => useTranslations('constants.gender');
+export const useReligionTranslations = () => useTranslations('constants.religion');
+export const useBloodGroupTranslations = () => useTranslations('constants.bloodGroup');
 
 // Utility function for formatted translations with placeholders
 export const formatTranslation = (template: string, params: Record<string, string | number>) => {

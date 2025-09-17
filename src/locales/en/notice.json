@@ -1,0 +1,14 @@
+{
+  "title": "Notices",
+  "addNew": "Add New Notice",
+  "details": "Notice Details",
+  "announcements": "Announcements",
+  "important": "Important",
+  "general": "General",
+  "urgent": "Urgent",
+  "publishDate": "Publish Date",
+  "expiryDate": "Expiry Date",
+  "targetAudience": "Target Audience",
+  "content": "Content",
+  "attachments": "Attachments"
+}

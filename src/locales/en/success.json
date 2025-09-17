@@ -1,0 +1,12 @@
+{
+  "loginSuccessfully": "Successfully logged in",
+  "saved": "Successfully saved",
+  "updated": "Successfully updated",
+  "deleted": "Successfully deleted",
+  "created": "Successfully created",
+  "uploaded": "Successfully uploaded",
+  "sent": "Successfully sent",
+  "published": "Successfully published",
+  "approved": "Successfully approved",
+  "rejected": "Successfully rejected"
+}

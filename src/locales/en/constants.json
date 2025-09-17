@@ -1,0 +1,24 @@
+{
+  "gender": {
+    "male": "Male",
+    "female": "Female",
+    "other": "Other"
+  },
+  "religion": {
+    "islam": "Islam",
+    "hinduism": "Hinduism",
+    "christianity": "Christianity",
+    "buddhism": "Buddhism",
+    "other": "Other"
+  },
+  "bloodGroup": {
+    "aPositive": "A+",
+    "aNegative": "A-",
+    "bPositive": "B+",
+    "bNegative": "B-",
+    "abPositive": "AB+",
+    "abNegative": "AB-",
+    "oPositive": "O+",
+    "oNegative": "O-"
+  }
+}

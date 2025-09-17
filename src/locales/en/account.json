@@ -1,0 +1,17 @@
+{
+  "title": "Accounts",
+  "profile": "Profile",
+  "settings": "Settings",
+  "payment": "Payment",
+  "billing": "Billing",
+  "invoice": "Invoice",
+  "receipt": "Receipt",
+  "balance": "Balance",
+  "transaction": "Transaction",
+  "history": "History",
+  "method": "Payment Method",
+  "due": "Due",
+  "paid": "Paid",
+  "pending": "Pending",
+  "overdue": "Overdue"
+}

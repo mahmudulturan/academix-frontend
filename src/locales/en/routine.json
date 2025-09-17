@@ -1,0 +1,17 @@
+{
+  "title": "Routine",
+  "create": "Create Routine",
+  "view": "View Routine",
+  "timetable": "Timetable",
+  "period": "Period",
+  "subject": "Subject",
+  "teacher": "Teacher",
+  "room": "Room",
+  "startTime": "Start Time",
+  "endTime": "End Time",
+  "duration": "Duration",
+  "break": "Break",
+  "lunch": "Lunch",
+  "weekly": "Weekly",
+  "daily": "Daily"
+}

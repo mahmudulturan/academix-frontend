@@ -1,0 +1,15 @@
+{
+  "title": "Subjects",
+  "addNew": "Add New Subject",
+  "details": "Subject Details",
+  "subjectName": "Subject Name",
+  "subjectCode": "Subject Code",
+  "description": "Description",
+  "syllabus": "Syllabus",
+  "books": "Books",
+  "teacher": "Teacher",
+  "creditHours": "Credit Hours",
+  "practicalHours": "Practical Hours",
+  "theoryHours": "Theory Hours",
+  "gradeLevel": "Grade Level"
+}

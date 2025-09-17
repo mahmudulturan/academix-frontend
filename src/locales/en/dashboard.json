@@ -1,0 +1,16 @@
+{
+  "welcome": "Welcome to Dashboard",
+  "overview": "Overview",
+  "statistics": "Statistics",
+  "recentActivities": "Recent Activities",
+  "quickActions": "Quick Actions",
+  "totalStudents": "Total Students",
+  "totalTeachers": "Total Teachers",
+  "totalClasses": "Total Classes",
+  "activeExams": "Active Exams",
+  "upcomingExams": "Upcoming Exams",
+  "attendance": "Attendance",
+  "todaysAttendance": "Today's Attendance",
+  "monthlyReport": "Monthly Report",
+  "announcements": "Announcements"
+}

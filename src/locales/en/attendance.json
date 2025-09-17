@@ -1,0 +1,20 @@
+{
+  "title": "Attendance",
+  "take": "Take Attendance",
+  "view": "View Attendance",
+  "date": "Date",
+  "present": "Present",
+  "absent": "Absent",
+  "late": "Late",
+  "excused": "Excused",
+  "percentage": "Percentage",
+  "record": "Record",
+  "monthly": "Monthly",
+  "weekly": "Weekly",
+  "daily": "Daily",
+  "report": "Report",
+  "summary": "Summary",
+  "markAll": "Mark All",
+  "markPresent": "Mark Present",
+  "markAbsent": "Mark Absent"
+}

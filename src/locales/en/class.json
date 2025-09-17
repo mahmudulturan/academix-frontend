@@ -1,0 +1,15 @@
+{
+  "title": "Classes",
+  "addNew": "Add New Class",
+  "details": "Class Details",
+  "className": "Class Name",
+  "classTeacher": "Class Teacher",
+  "totalStudents": "Total Students",
+  "subjects": "Subjects",
+  "timetable": "Timetable",
+  "capacity": "Capacity",
+  "room": "Room",
+  "schedule": "Schedule",
+  "academicYear": "Academic Year",
+  "fees": "Fees Structure"
+}

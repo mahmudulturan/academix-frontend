@@ -1,0 +1,21 @@
+{
+  "title": "Exams",
+  "addNew": "Add New Exam",
+  "create": "Create Exam",
+  "details": "Exam Details",
+  "schedule": "Schedule",
+  "type": "Type",
+  "term": "Term",
+  "midterm": "Midterm",
+  "final": "Final",
+  "quiz": "Quiz",
+  "assignment": "Assignment",
+  "practical": "Practical",
+  "theory": "Theory",
+  "duration": "Duration",
+  "totalMarks": "Total Marks",
+  "passingMarks": "Passing Marks",
+  "instructions": "Instructions",
+  "venue": "Venue",
+  "invigilator": "Invigilator"
+}

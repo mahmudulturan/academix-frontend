@@ -1,0 +1,14 @@
+{
+  "title": "নোটিশ",
+  "addNew": "নতুন নোটিশ যোগ করুন",
+  "details": "নোটিশের বিস্তারিত",
+  "announcements": "ঘোষণা",
+  "important": "গুরুত্বপূর্ণ",
+  "general": "সাধারণ",
+  "urgent": "জরুরি",
+  "publishDate": "প্রকাশের তারিখ",
+  "expiryDate": "মেয়াদ উত্তীর্ণের তারিখ",
+  "targetAudience": "লক্ষ্য দর্শক",
+  "content": "বিষয়বস্তু",
+  "attachments": "সংযুক্তি"
+}

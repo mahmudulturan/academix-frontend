@@ -1,0 +1,18 @@
+{
+  "required": "এই ঘরটি পূরণ করা আবশ্যক",
+  "invalidEmail": "সঠিক ইমেইল ঠিকানা দিন",
+  "passwordMinLength": "পাসওয়ার্ড অন্তত ৮ অক্ষরের হতে হবে",
+  "passwordsDoNotMatch": "পাসওয়ার্ড মিলছে না",
+  "invalidPhoneNumber": "সঠিক ফোন নম্বর দিন",
+  "selectAnOption": "একটি অপশন নির্বাচন করুন",
+  "chooseFile": "ফাইল নির্বাচন করুন",
+  "uploadFile": "ফাইল আপলোড করুন",
+  "dragAndDropFile": "ফাইল এখানে ড্র্যাগ করে ছেড়ে দিন, অথবা ক্লিক করে নির্বাচন করুন",
+  "maxFileSize": "সর্বোচ্চ ফাইল সাইজ {size}MB",
+  "allowedFormats": "অনুমোদিত ফরম্যাট: {formats}",
+  "fieldTooLong": "এই ঘরটি খুব লম্বা",
+  "fieldTooShort": "এই ঘরটি খুব ছোট",
+  "invalidFormat": "অবৈধ ফরম্যাট",
+  "confirmDelete": "আপনি কি নিশ্চিত মুছতে চান?",
+  "confirmAction": "আপনি কি নিশ্চিত এই কাজটি করবেন?"
+}
