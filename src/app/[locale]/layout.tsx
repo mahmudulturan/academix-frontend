@@ -2,6 +2,8 @@ import { FC } from 'react';
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 
 import ThemeProvider from '@/providers/theme-provider';
 import TanstackProvider from '@/providers/tanstack-provider';
@@ -23,20 +25,29 @@ export const metadata: Metadata = {
   description: "Acdemix - School Management App. A premium school management app for schools.",
 };
 
+interface MainLayoutProps {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}
 
-const MainLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
+const MainLayout: FC<MainLayoutProps> = async ({ children, params }) => {
+  const { locale } = await params;
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TanstackProvider>
-          <AuthProvider>
-            <ThemeProvider>
-              {children}
-            </ThemeProvider>
-          </AuthProvider>
-        </TanstackProvider>
+        <NextIntlClientProvider messages={messages}>
+          <TanstackProvider>
+            <AuthProvider>
+              <ThemeProvider>
+                {children}
+              </ThemeProvider>
+            </AuthProvider>
+          </TanstackProvider>
+        </NextIntlClientProvider>
         <Toaster />
       </body>
     </html>
