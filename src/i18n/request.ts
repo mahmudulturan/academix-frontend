@@ -29,10 +29,10 @@ async function loadMessages(locale: string) {
 
   const messages: Record<string, unknown> = {};
 
-  for (const module of modules) {
+  for (const m of modules) {
     try {
-      const moduleMessages = (await import(`../locales/${locale}/${module}.json`)).default;
-      messages[module] = moduleMessages;
+      const moduleMessages = (await import(`../locales/${locale}/${m}.json`)).default;
+      messages[m] = moduleMessages;
     } catch (error) {
       console.warn(`Failed to load ${module} translations for ${locale}:`, error);
     }
