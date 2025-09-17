@@ -1,5 +1,4 @@
 "use client";
-
 import Icon from '@/components/common/icon';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -28,6 +27,8 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/comp
 import { useTheme } from '@/providers/theme-provider';
 import { cn } from '@/lib/utils';
 import { useStore } from '@/store';
+import { useTranslations } from 'next-intl';
+import LocaleSwitcher from '@/components/common/locale-switcher';
 
 interface UserMenuProps {
     isSidebarExpanded: boolean;
@@ -36,6 +37,7 @@ interface UserMenuProps {
 const UserMenu: FC<UserMenuProps> = ({ isSidebarExpanded }) => {
     const { theme, handleThemeChange } = useTheme();
     const user = useStore(state => state.auth.user);
+    const t = useTranslations('common');
 
     return (
         <DropdownMenu>
@@ -153,6 +155,12 @@ const UserMenu: FC<UserMenuProps> = ({ isSidebarExpanded }) => {
                                 </Tooltip>
                             </TooltipProvider>
                         </div>
+                    </div>
+                </DropdownMenuLabel>
+                <DropdownMenuLabel asChild>
+                    <div className='flex items-center justify-between'>
+                        <span className='text-sm font-medium'>{t('language')}</span>
+                        <LocaleSwitcher />
                     </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />

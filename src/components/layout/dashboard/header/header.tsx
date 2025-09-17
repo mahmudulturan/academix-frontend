@@ -1,5 +1,6 @@
 "use client";
 import Icon from '@/components/common/icon';
+import LocaleSwitcher from '@/components/common/locale-switcher';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -66,13 +67,17 @@ const DashboardHeader: FC<DashboardHeaderProps> = ({ isSidebarExpanded, setIsSid
                         {generateBreadcrumbs()}
                     </BreadcrumbList>
                 </Breadcrumb>
-            </div>            <Button>
-                <Icon
-                    icon={PlusSignCircleIcon}
-                    size={16}
-                />
-                <span>Quick Create</span>
-            </Button>
+            </div>
+            <div className='flex items-center gap-2'>
+                <Button>
+                    <Icon
+                        icon={PlusSignCircleIcon}
+                        size={16}
+                    />
+                    <span>Quick Create</span>
+                </Button>
+                <LocaleSwitcher />
+            </div>
         </div>
     );
 };
