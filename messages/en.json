@@ -385,6 +385,7 @@
     "fileUploadError": "File upload failed"
   },
   "success": {
+    "loginSuccessfully": "Successfully logged in",
     "saved": "Successfully saved",
     "updated": "Successfully updated",
     "deleted": "Successfully deleted",
