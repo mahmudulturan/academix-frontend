@@ -356,22 +356,22 @@
     "librarian": "গ্রন্থাগারিক"
   },
   "forms": {
-    "required": "এই ক্ষেত্রটি আবশ্যক",
-    "invalidEmail": "অনুগ্রহ করে একটি বৈধ ইমেইল ঠিকানা লিখুন",
-    "passwordMinLength": "পাসওয়ার্ড কমপক্ষে ৮ অক্ষরের হতে হবে",
-    "passwordsDoNotMatch": "পাসওয়ার্ড মেলে না",
-    "invalidPhoneNumber": "অনুগ্রহ করে একটি বৈধ ফোন নম্বর লিখুন",
+    "required": "এই ঘরটি পূরণ করা আবশ্যক",
+    "invalidEmail": "সঠিক ইমেইল ঠিকানা দিন",
+    "passwordMinLength": "পাসওয়ার্ড অন্তত ৮ অক্ষরের হতে হবে",
+    "passwordsDoNotMatch": "পাসওয়ার্ড মিলছে না",
+    "invalidPhoneNumber": "সঠিক ফোন নম্বর দিন",
     "selectAnOption": "একটি অপশন নির্বাচন করুন",
     "chooseFile": "ফাইল নির্বাচন করুন",
     "uploadFile": "ফাইল আপলোড করুন",
-    "dragAndDropFile": "আপনার ফাইল এখানে টেনে আনুন, অথবা নির্বাচন করতে ক্লিক করুন",
+    "dragAndDropFile": "ফাইল এখানে ড্র্যাগ করে ছেড়ে দিন, অথবা ক্লিক করে নির্বাচন করুন",
     "maxFileSize": "সর্বোচ্চ ফাইল সাইজ {size}MB",
     "allowedFormats": "অনুমোদিত ফরম্যাট: {formats}",
-    "fieldTooLong": "এই ক্ষেত্রটি অত্যধিক দীর্ঘ",
-    "fieldTooShort": "এই ক্ষেত্রটি অত্যধিক ছোট",
+    "fieldTooLong": "এই ঘরটি খুব লম্বা",
+    "fieldTooShort": "এই ঘরটি খুব ছোট",
     "invalidFormat": "অবৈধ ফরম্যাট",
-    "confirmDelete": "আপনি কি নিশ্চিত যে এই আইটেমটি মুছে দিতে চান?",
-    "confirmAction": "আপনি কি নিশ্চিত যে এই কার্যটি সম্পাদন করতে চান?"
+    "confirmDelete": "আপনি কি নিশ্চিত মুছতে চান?",
+    "confirmAction": "আপনি কি নিশ্চিত এই কাজটি করবেন?"
   },
   "errors": {
     "somethingWentWrong": "কিছু ভুল হয়েছে",
