@@ -1,0 +1,4 @@
+- Don't use any type ever for typescript type definitions.
+- Follow the existing coding practices.
+- When creating any feature or doing something always check the existing coding practices.
+- Use shadcn ui components if not exist any component then install from their latest documentation.
