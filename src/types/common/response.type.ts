@@ -16,6 +16,8 @@ export interface IPaginationMeta {
     limit: number;
     totalData: number;
     totalPage: number;
+    hasNextPage: boolean;
+    hasPrevPage: boolean;
 };
 
 export interface IResponseWithPaginationData<T> {
