@@ -30,7 +30,7 @@ export const useDeleteMyAccountMutation = () => {
         onSuccess: (response) => {
             removeUser();
             handleSuccessResponse(response);
-            router.push("/auth/login");
+            router.push("/login");
         },
         onError: (error: IErrorResponse) => {
             handleErrorResponse(error);
