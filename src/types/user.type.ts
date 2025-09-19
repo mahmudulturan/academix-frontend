@@ -1,4 +1,5 @@
 import { USER_STATUS } from "@/constant/user.constant";
+import { TUserStatus } from './common.type';
 
 export interface IName {
     en: string;
@@ -40,4 +41,20 @@ export interface IUpdateMyProfilePayload {
 
 export interface IUpdateUserStatusPayload {
     status: "active" | "blocked";
+}
+
+export interface IUserWithPermissions {
+    id: string;
+    name: IName;
+    email: string;
+    phone: string;
+    username: string;
+    profileImage?: string;
+    roles: string[];
+    status: TUserStatus;
+    isEmailVerified: boolean;
+    isDeleted: boolean;
+    permissions: string[];
+    createdAt?: Date;
+    updatedAt?: Date;
 }
