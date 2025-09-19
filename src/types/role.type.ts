@@ -1,25 +1,18 @@
-export interface IPermission {
-    _id: string;
-    name: string;
-    displayName: string;
-    description: string;
-    isSystem: boolean;
-    isActive: boolean;
-    createdAt: string;
-    updatedAt: string;
-}
+import { IPermission } from './permission.type';
 
 export interface IRole {
-    _id: string;
+    id: string;
     name: string;
     displayName: string;
-    description: string;
+    description?: string;
     permissions: string[] | IPermission[];
     isSystem: boolean;
     isActive: boolean;
     hierarchy: number;
-    createdAt: string;
-    updatedAt: string;
+    createdBy?: string;
+    updatedBy?: string;
+    createdAt: Date;
+    updatedAt: Date;
 }
 
 export interface IGetAllRolesParams {
@@ -52,4 +45,27 @@ export interface IUpdateRolePayload {
 
 export interface IAssignUsersToRolePayload {
     userIds: string[];
+}
+
+export interface IRoleWithPermissions extends Omit<IRole, 'permissions'> {
+    permissions: IPermission[];
+}
+
+export interface IRoleCreatePayload {
+    name: string;
+    displayName: string;
+    description?: string;
+    permissions: string[];
+    hierarchy?: number;
+}
+
+export interface IAssignRolePayload {
+    userId: string;
+    roleIds: string[];
+}
+
+export interface IRoleFilters {
+    name?: string;
+    isActive?: boolean;
+    isSystem?: boolean;
 }
