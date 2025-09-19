@@ -1,11 +1,5 @@
-import { IName } from "./user.type";
+import { IName, IAddress, IApproval, TGender, TBloodGroup, TStudentDocumentType } from './common.type';
 
-export interface IAddress {
-    village: string;
-    post: string;
-    subDistrict: string;
-    district: string;
-}
 
 export interface IGuardian {
     name: IName;
@@ -20,16 +14,11 @@ export interface IPreviousSchool {
     leavingReason: string;
 }
 
-export interface IDocument {
-    type: string;
+export interface IStudentDocument {
+    type: TStudentDocumentType;
     fileUrl: string;
 }
 
-export interface IApproval {
-    status: "pending" | "approved" | "rejected";
-    approvedBy?: string;
-    approvedAt?: string;
-}
 
 export interface IStudent {
     id: string;
@@ -38,11 +27,11 @@ export interface IStudent {
     fatherName: IName;
     motherName: IName;
     guardian: IGuardian;
-    gender: "male" | "female" | "other";
-    dateOfBirth: string;
+    gender: TGender;
+    dateOfBirth: Date;
     nationality: string;
     religion: string;
-    bloodGroup: string;
+    bloodGroup: TBloodGroup;
     nidNumber: string;
     presentAddress: IAddress;
     permanentAddress: IAddress;
@@ -51,12 +40,12 @@ export interface IStudent {
     currentClass: string;
     section: string;
     roll: number;
-    admissionDate: string;
+    admissionDate: Date;
     rfid: string;
     approval: IApproval;
-    documents: IDocument[];
-    createdAt: string;
-    updatedAt: string;
+    documents: IStudentDocument[];
+    createdAt: Date;
+    updatedAt: Date;
 }
 
 export interface IGetAllStudentsParams {
@@ -67,7 +56,7 @@ export interface IGetAllStudentsParams {
     "approval.status"?: "pending" | "approved" | "rejected";
     currentClass?: string;
     section?: string;
-    gender?: "male" | "female" | "other";
+    gender?: TGender;
     populate?: string;
     fields?: string;
     userFields?: string;
@@ -106,18 +95,18 @@ export interface IStudentAdmissionPayload {
     admissionClass: string;
     section: string;
     rfid: string;
-    documents: IDocument[];
+    documents: IStudentDocument[];
 }
 
 export interface IUpdateStudentPayload {
     fatherName?: IName;
     motherName?: IName;
     guardian?: IGuardian;
-    gender?: "male" | "female" | "other";
-    dateOfBirth?: string;
+    gender?: TGender;
+    dateOfBirth?: Date;
     nationality?: string;
     religion?: string;
-    bloodGroup?: string;
+    bloodGroup?: TBloodGroup;
     nidNumber?: string;
     presentAddress?: IAddress;
     permanentAddress?: IAddress;
