@@ -14,8 +14,8 @@ const DashboardLayout: FC<{ children: ReactNode }> = ({ children }) => {
                     isSidebarExpanded={isSidebarExpanded}
                     setIsSidebarExpanded={setIsSidebarExpanded}
                 />
-                <main className='flex-1 overflow-auto ml-1'>
-                    <div className='p-6 '>
+                <main className='flex-1 overflow-auto'>
+                    <div>
                         {children}
                     </div>
                 </main>
