@@ -1,23 +1,18 @@
 import { ChevronDown, Filter } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Search } from 'lucide-react';
-import { FC } from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { Column, Table } from '@tanstack/react-table';
+import { Column } from '@tanstack/react-table';
 
-interface DataGridSearchFilterProps {
-    globalFilter: string;
-    setGlobalFilter: (value: string) => void;
-    columns: Column<unknown, unknown>[];
+interface DataGridSearchFilterProps<T> {
+    columns: Column<T>[];
 }
 
-const DataGridSearchFilter: FC<DataGridSearchFilterProps> = ({
-    globalFilter,
-    setGlobalFilter,
+const DataGridSearchFilter = <T,>({
     columns
-}) => {
+}: DataGridSearchFilterProps<T>) => {
     return (
         <div className="flex items-center justify-between border-b px-6">
             <div className="inline-flex items-center justify-start text-muted-foreground mr-2 h-12 max-h-12 min-h-12 gap-x-2 border-none text-sm">
@@ -25,8 +20,6 @@ const DataGridSearchFilter: FC<DataGridSearchFilterProps> = ({
                     <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                     <Input
                         placeholder="Search all columns..."
-                        value={globalFilter}
-                        onChange={(event) => setGlobalFilter(event.target.value)}
                         className="pl-9"
                     />
                 </div>

@@ -8,14 +8,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { FC } from "react";
-import { User } from "@/constant";
 
-interface IDataGridContentProps {
-  table: ITable<User>;
+interface DataGridContentProps<T> {
+  table: ITable<T>;
 }
 
-const DataGridContent: FC<IDataGridContentProps> = ({ table }) => {
+const DataGridContent = <T,>({ table }: DataGridContentProps<T>) => {
   return (
     <div style={{ minWidth: "100%", display: "table" }}>
       <div className="relative w-full h-[calc(100vh-177px)] overflow-auto">
@@ -31,9 +29,9 @@ const DataGridContent: FC<IDataGridContentProps> = ({ table }) => {
                       {header.isPlaceholder
                         ? null
                         : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
                     </TableHead>
                   );
                 })}

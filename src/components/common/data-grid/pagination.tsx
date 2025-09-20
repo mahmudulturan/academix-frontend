@@ -1,14 +1,13 @@
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { ChevronLeftIcon, ChevronRightIcon, ChevronsLeftIcon, ChevronsRightIcon } from 'lucide-react';
-import { FC } from 'react';
 import { Table } from '@tanstack/react-table';
+import { ChevronLeftIcon, ChevronRightIcon, ChevronsLeftIcon, ChevronsRightIcon } from 'lucide-react';
 
-interface DataGridPaginationProps {
-    table: Table<any>
+interface DataGridPaginationProps<T> {
+    table: Table<T>
 }
 
-const DataGridPagination: FC<DataGridPaginationProps> = ({ table }) => {
+const DataGridPagination = <T,>({ table }: DataGridPaginationProps<T>) => {
     return (
         <div className='sticky inset-x-0 bottom-0 z-20 border-t bg-background h-16'>
             <div className='flex flex-row items-center justify-between gap-2 space-x-2 px-6 py-3'>
