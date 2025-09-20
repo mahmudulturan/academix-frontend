@@ -4,7 +4,6 @@ import {
   ColumnDef,
   ColumnFiltersState,
   SortingState,
-  Table,
   VisibilityState,
   getCoreRowModel,
   getFilteredRowModel,
@@ -15,6 +14,7 @@ import {
 import DataGridSearchFilter from "./search-filter";
 import DataGridContent from "./content";
 import DataGridPagination from "./pagination";
+import DataGridBulkActions from "./bulk-actions";
 
 interface DataGridProps<T> {
   data: T[];
@@ -23,6 +23,7 @@ interface DataGridProps<T> {
   enableRowSelection?: boolean;
   enableSorting?: boolean;
   enablePagination?: boolean;
+  bulkActions?: (selectedItems: T[]) => React.ReactNode;
 }
 const DataGrid = <T,>({
   data,
@@ -30,7 +31,8 @@ const DataGrid = <T,>({
   enableColumnVisibility = true,
   enableRowSelection = false,
   enableSorting = true,
-  enablePagination = true
+  enablePagination = true,
+  bulkActions
 }: DataGridProps<T>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
@@ -56,6 +58,13 @@ const DataGrid = <T,>({
     },
   });
 
+  const selectedRows = table.getFilteredSelectedRowModel().rows;
+  const selectedItems = selectedRows.map(row => row.original);
+
+  const handleClearSelection = () => {
+    setRowSelection({});
+  };
+
   return (
     <div className="">
       <DataGridSearchFilter
@@ -65,6 +74,14 @@ const DataGrid = <T,>({
         <DataGridContent table={table} />
         <DataGridPagination table={table} />
       </div>
+
+      {bulkActions && enableRowSelection && (
+        <DataGridBulkActions
+          selectedItems={selectedItems}
+          actions={bulkActions(selectedItems)}
+          onClearSelection={handleClearSelection}
+        />
+      )}
     </div>
   );
 };
