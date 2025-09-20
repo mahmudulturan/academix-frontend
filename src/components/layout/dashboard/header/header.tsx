@@ -4,7 +4,7 @@ import LocaleSwitcher from '@/components/common/locale-switcher';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { PlusSignCircleIcon, SidebarLeft01Icon, SidebarRight01Icon } from '@hugeicons/core-free-icons';
+import { Notification02Icon, NotificationSquareIcon, PlusSignCircleIcon, SidebarLeft01Icon, SidebarRight01Icon } from '@hugeicons/core-free-icons';
 import { usePathname } from '@/i18n/routing';
 import { FC } from 'react';
 import { useNavigationTranslations, useStudentTranslations } from '@/lib/i18n-utils';
@@ -93,6 +93,16 @@ const DashboardHeader: FC<DashboardHeaderProps> = ({ isSidebarExpanded, setIsSid
                         size={16}
                     />
                     <span>{studentT('admission')}</span>
+                </Button>
+                <Button
+                    variant={"secondary"}
+
+                >
+                    <Icon
+                        size={24}
+                        icon={Notification02Icon}
+                    />
+                    <span className='text-red-400'>99+</span>
                 </Button>
                 <LocaleSwitcher />
             </div>
